@@ -32,18 +32,18 @@
 	</div>
 </body>
 <script>
-const data = { test: "123" };
+function onbuttonclick()
+{	
+	const data = { test: "123" };
 
-fetch("http://localhost:3000/zsa", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(data),
-})
-  .then((data) => {
-    console.log(data);
-  });
-
+	fetch("http://localhost:3000/zsa", {
+	method: "POST",
+	headers: {
+		"Content-Type": "application/json",
+	},
+	body: JSON.stringify(data),
+	}).then(response => response.json())
+  .then(data => console.log(data));
+}
 </script> 
 </html>
