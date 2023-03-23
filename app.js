@@ -23,6 +23,8 @@ app.get('/about', (req, res) => {
     res.render('about')
 })
 
-
+app.post('/zsa', (req, res) => {
+    res.send("zsamo");
+});
 
 app.listen(port, ()=>console.info('App available on localhost '+port))
