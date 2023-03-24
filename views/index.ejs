@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="hu" class="index">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Morph Könyvek</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <nav role="navigation">
-      <div class="menuToggle">
-        <input class="toggleCheckbox" type="checkbox" />
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Morph Könyvek</title>
+	<link rel="stylesheet" href="css/styles.css">
+	
+</head>
+<body>
+	<nav role="navigation">
+		<div class="menuToggle">
+			<input class="toggleCheckbox" type="checkbox" />
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
 
-      <div class="menu">
-        <a href="/about">about</a>
-        <a href="cart.html">Kosár</a>
-      </div>
-    </nav>
+		<div class="menu">
+			<a href="/about">about</a>
+			<a href="cart.html">Kosár</a>
+		</div>
+	</nav>
+	
+	<div class="headerContainer">
+		<div>
+			<h1><%= text %></h1>
+			<h6>est. 2023</h6>
+			<button onclick="onbuttonclick()">zsa</button>
+		</div>
+	</div>
+</body>
+<script>
+function onbuttonclick()
+{	
+	let zsamos = "egyketoharm";
 
-    <div class="headerContainer">
-      <div>
-        <h1><%= text %></h1>
-        <h6>est. 2023</h6>
-        <button onclick="onbuttonclick()">zsa</button>
-      </div>
-    </div>
-  </body>
-  <script>
-    function onbuttonclick() {
-      const data = { test: document.querySelector("h1").innerHTML };
-
-      fetch("http://localhost:3000/zsa", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      })
-        .then(response => response.json())
-        .then(data => console.log(data));
-    }
-  </script>
+	fetch("http://localhost:3000/getxml", {
+	method: "POST",
+	headers: {
+		"Content-Type": "text/plain",
+	},
+	body: zsamos
+	}).then(response => response.text())
+  	  .then(data => {
+			const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
+			fetch("http://localhost:3000/setxml", {
+				method: "POST",
+				headers: {
+					"Content-Type": "text/plain",
+				},
+				body: new XMLSerializer().serializeToString(xmlDocument)
+			})
+    });
+}
+</script> 
 </html>
