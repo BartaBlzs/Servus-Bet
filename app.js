@@ -11,7 +11,7 @@ const jsonParser = bodyParser.json();
 app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public/css"));
 app.use("/js", express.static(__dirname + "public/js"));
-app.use("/img", express.static(__dirname + "public/img"));
+app.use("/source", express.static(__dirname + "public/source"));
 // Set views
 
 app.set("views", "./views");
@@ -20,22 +20,30 @@ app.set("view engine", "ejs");
 // Get and Post requests
 
 app.get("", (req, res) => {
-  res.render("index", { text: "this is ejs" });
+  res.render("index", { "text" : "this is ejs" });
 });
 
-app.get("/about", (req, res) => {
-  res.render("about");
+app.get("/servusbet", (req, res) => {
+  res.render("servusbet");
 });
 
-app.post("/zsa", jsonParser, (req, res) => {
-  fs.readFile("public/img/zdsa.xml", "utf8", (err, data) => {
+
+
+app.post("/getxml", bodyParser.text({type: '*/*'}), (req, res) => {
+  fs.readFile("public/source/users.xml", "utf8", (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
-    res.send(JSON.stringify(data));
-  });
-  let data = req.body.test;
-});
+    res.send(data);
+  })
+})
+
+app.post("/setxml", bodyParser.text({type: '*/*'}), (req, res) => {
+    let data = req.body;
+    fs.writeFile("public/source/users.xml", data, (err) => {
+        if (err) console.log(err);
+      })
+})
 
 app.listen(port, () => console.info("App available on localhost " + port));
