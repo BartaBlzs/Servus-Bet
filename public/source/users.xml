@@ -1,12 +1,1 @@
-<users>
-	<user>
-		<username>Bazs</username>
-		<password>q1w2e3</password>
-		<currency>0</currency>
-	</user>
-	<user>
-		<username>zsamo</username>
-		<password>zsase</password>
-		<currency>0</currency>
-	</user>
-</users>
+<users><user xmlns="http://www.w3.org/1999/xhtml"><username>Bazs</username><password>U2FsdGVkX1/aGPK1cTi7/jXgHwRTvQw6UGLzH3ADAco=</password><email>Ba@gmail.com</email><currency>0</currency></user></users>

@@ -10,74 +10,21 @@
 </head>
 <body>
 	<div class="container">
-		<div class="form">
+		<div class="loginform">
 			<input type="text" required placeholder="Felhasználónév">
 			<input type="password" required placeholder="Jelszó">
-			<button onclick="submit()">Bejelentkezés</button>
+			<button onclick="login()">Bejelentkezés</button>
+			<button onclick="loginSignupToggle()">Nincs még fiókja?</button>
+		</div>
+		<div class="signupform">
+			<input type="text" required placeholder="Felhasználónév">
+			<input type="email" required placeholder="Email">
+			<input type="password" required placeholder="Jelszó">
+			<button onclick="signup()">Regisztráció</button>
+			<button onclick="loginSignupToggle()">Van már fiókja?</button>
 		</div>
 	</div>
 </body>
-<script>
-function submit()
-{
-	var username = document.querySelectorAll('input')[0]
-	var password = document.querySelectorAll('input')[1]
-	
-	if (username.reportValidity() && password.reportValidity())
-	{
-		fetch("http://localhost:3000/getxml",
-		{
-			method: "POST",
-			headers: 
-			{
-				"Content-Type": "text/plain"//,
-			}
-		}).then(response => response.text())
-		.then(data => {
-				const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
-				xmlDocument.querySelectorAll('user').forEach(user => {
-					if (user.children[0].innerHTML == username.value && user.children[1].innerHTML == password.value)
-					{
-						sessionStorage.setItem("username", user.children[0].innerHTML)
-						sessionStorage.setItem("currency", user.children[2].innerHTML)
-						location.href = "/servusbet"
-					}
-				})
-		});
-	}
-}
-	
-function onbuttonclick()
-{	
-	let zsamos = "egyketoharm";
-
-	fetch("http://localhost:3000/getxml", {
-	method: "POST",
-	headers: {
-		"Content-Type": "text/plain",
-	},
-	body: zsamos
-	}).then(response => response.text())
-  	  .then(data => {
-			const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
-			var user = document.createElement('user')
-			var username = document.createElement('username')
-			var password = document.createElement('password')
-			username.innerHTML = "zsamo"
-			r.innerHTML = "na szo gec vak"
-			l.appendChild(z)
-			l.appendChild(r)
-
-			console.log(xmlDocument)
-			xmlDocument.querySelector('users').appendChild(l)
-			fetch("http://localhost:3000/setxml", {
-				method: "POST",
-				headers: {
-					"Content-Type": "text/plain",
-				},
-				body: new XMLSerializer().serializeToString(xmlDocument)
-			})
-    });
-}
-</script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+<script src="js/main.js"></script> 
 </html>

@@ -8,15 +8,24 @@
   </head>
   <body>
     <div class="e"></div>
+    <button onclick="logout()">s</button>
   </body>
   <script>
-    if (sessionStorage.getItem("username") != null)
+    function logout()
     {
-      document.querySelector('.e').innerHTML = sessionStorage.getItem("username")
+      sessionStorage.setItem("username", "")
+      location.href = "/servusbet"
     }
-    else
+    window.onload = () =>
     {
-      document.querySelector('.e').innerHTML = "nem lephetsz be mer nem vagy bejelentkezve"
+      if (sessionStorage.getItem("username") != "" && sessionStorage.getItem("username") != null)
+      {
+        document.querySelector('.e').innerHTML = sessionStorage.getItem("username")
+      }
+      else
+      {
+        location.href = "/"
+      }
     }
   </script>
 </html>
