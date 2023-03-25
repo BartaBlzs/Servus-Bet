@@ -1,21 +1,21 @@
 function loginSignupToggle()
 {
-	if(getComputedStyle(document.querySelector('.loginform')).display == 'flex')
+	if(getComputedStyle(document.querySelector('.login')).display == 'block')
 	{
-		document.querySelector('.loginform').style.display = 'none'
-		document.querySelector('.signupform').style.display = 'flex'
+		document.querySelector('.login').style.display = 'none'
+		document.querySelector('.signup').style.display = 'block'
 	}
 	else
 	{
-		document.querySelector('.loginform').style.display = 'flex'
-		document.querySelector('.signupform').style.display = 'none'
+		document.querySelector('.login').style.display = 'block'
+		document.querySelector('.signup').style.display = 'none'
 	}
 }
 
 function login()
 {
-	var username = document.querySelectorAll('.loginform > input')[0]
-	var password = document.querySelectorAll('.loginform > input')[1]
+	var username = document.querySelectorAll('.login > input')[0]
+	var password = document.querySelectorAll('.login > input')[1]
 	
 	if (username.reportValidity() && password.reportValidity())
 	{
@@ -44,13 +44,22 @@ function login()
 
 function signup()
 {
-	var username = document.querySelectorAll('.signupform > input')[0]
-	var password = document.querySelectorAll('.signupform > input')[2]
-	var email = document.querySelectorAll('.signupform > input')[1]
+	var username = document.querySelectorAll('.signup > input')[0]
+	var password = document.querySelectorAll('.signup > input')[2]
+	var email = document.querySelectorAll('.signup > input')[1]
 	
 	if (username.reportValidity() && email.reportValidity() && password.reportValidity())
 	{
-		setxml(username.value, email.value, password.value)
+		//setxml(username.value, email.value, password.value)
+		console.log(email.value)
+		fetch("http://localhost:3000/sendmail", 
+		{
+			method: "POST",
+			headers: {
+				"Content-Type": "text/plain",
+			},
+			body: email.value.toString()
+		})
 	}
 }
 

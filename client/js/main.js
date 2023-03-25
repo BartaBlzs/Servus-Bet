@@ -1,14 +1,14 @@
 function loginSignupToggle()
 {
-	if(getComputedStyle(document.querySelector('.loginform')).display == 'flex')
+	if(getComputedStyle(document.querySelector('.login')).display == 'block')
 	{
-		document.querySelector('.loginform').style.display = 'none'
-		document.querySelector('.signupform').style.display = 'flex'
+		document.querySelector('.login').style.display = 'none'
+		document.querySelector('.signup').style.display = 'block'
 	}
 	else
 	{
-		document.querySelector('.loginform').style.display = 'flex'
-		document.querySelector('.signupform').style.display = 'none'
+		document.querySelector('.login').style.display = 'block'
+		document.querySelector('.signup').style.display = 'none'
 	}
 }
 
