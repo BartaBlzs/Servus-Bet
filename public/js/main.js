@@ -22,7 +22,7 @@ function login()
 		fetch("http://localhost:3000/getxml",
 		{
 			method: "POST",
-			headers: 
+			headers:
 			{
 				"Content-Type": "text/plain"
 			}
