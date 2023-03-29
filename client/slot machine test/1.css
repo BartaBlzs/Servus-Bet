@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
+
 html,
 body {
   width: 100vw;
@@ -29,26 +31,48 @@ body {
   align-items: center;
 }
 
+img
+{
+  position: absolute;
+  width: 800px;
+  pointer-events: none;
+}
+
 .app
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.row
 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100px;
-  width: 50%;
-  height: 60%;
-  background: gray;
-  border-radius: 10px;
+  height: 33%;
+}
+
+.jp
+{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 80px;
+  color: rgb(128, 0, 0);
 }
 
 .doors {
   position: relative;
   display: flex;
+  top: 20px;
+
+  left: 20px;
 }
 
 .door {
-  background: #fafafa;
+  background: rgb(226, 227, 228);
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
   width: 100px;
   height: 150px;
@@ -78,54 +102,47 @@ body {
   cursor: pointer;
   display: flex;
   transform: rotate(90deg);
+  left: 98px;
 }
 
 .lever 
 {
   position: absolute;
-  width: 8px;
-  left: 32px;
-  top: -25px;
+  left: 40px;
+  top: -80px;
   transform: rotate(-70deg);
   transform-origin: 50% 100%;
 }
 
 .knob 
 {
-  background-color: rgb(145, 14, 14);
-  width: 12px;
-  height: 28px;
+  background-color: #202020;
+  width: 16px;
+  height: 20px;
   border-radius: 3px;
 }
 
 .stick 
 {
-  width: 10px;
-  height: 50px;
-  background-color: white;
+  width: 15px;
+  height: 120px;
+  background-color: #b3b1a9;
   margin: 0 auto;
 }
 
 .lever-base 
 {
   position: relative;
-  width: 54px;
+  width: 51px;
 }
 
 .pivot 
 {
   position: relative;
-  width: 40px;
-  height: 20px;
+  width: 80px;
+  height: 30px;
   left: 10px;
   border-radius: 50px 50px 0 0;
-  background-color: #D0D2D3;
+  background-color: transparent;
   margin: 0 auto;
-}
-
-.base 
-{
-  width: 75px;
-  height: 7px;
-  background-color: #B3B3B3;
 }
