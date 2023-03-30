@@ -23,10 +23,16 @@ body {
   position: relative;
   overflow: hidden;
   background-color: whitesmoke;
-  padding: 30px;
+  padding: 10px 30px 20px 30px;
   border-radius: 10px;
   position: absolute;
   width: 400px;
+  user-select: none;
+}
+
+.userinfo > h2
+{
+  text-align: center;
 }
 
 .userinfo > input {
