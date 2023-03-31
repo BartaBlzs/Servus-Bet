@@ -46,6 +46,7 @@ body {
   padding: 10px 10px;
   margin: 15px -10px;
 }
+
 .userinfo > div > button {
   font-family: "Asap", sans-serif;
   cursor: pointer;
@@ -75,7 +76,7 @@ body {
 
 .userinfo > div > a:hover
 {
-  color: rgba(45, 51, 55, 1);
+  text-decoration: underline;
 }
 
 .userinfo > div

@@ -58,7 +58,7 @@ function signup()
 			headers: {
 				"Content-Type": "text/plain",
 			},
-			body: email.value.toString()
+			body: username.value+";"+email.value
 		})
 	}
 }
