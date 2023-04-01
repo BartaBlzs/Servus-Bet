@@ -66,7 +66,7 @@ function signup()
 	
 	if (username.reportValidity() && email.reportValidity() && password.reportValidity())
 	{
-		//setxml(username.value, email.value, password.value)
+		setxml(username.value, email.value, password.value)
 		console.log(email.value)
 		fetch("http://localhost:3000/sendmail", 
 		{
@@ -121,13 +121,55 @@ function forgotPasswordToggle()
 
 function forgotPassword()
 {
+	var email = document.querySelector('.forgotpass > input')
 
-	/*fetch("http://localhost:3000/sendmail", 
+	if (email.reportValidity())
+	{
+		fetch("http://localhost:3000/getxml",
 		{
 			method: "POST",
-			headers: {
-				"Content-Type": "text/plain",
-			},
-			body: username.value+";"+email.value
-		})*/
+			headers:
+			{
+				"Content-Type": "text/plain"
+			}
+		}).then(response => response.text())
+		  .then(data => {
+				const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
+				xmlDocument.querySelectorAll('user').forEach(user => {
+					if (user.children[2].innerHTML == email.value)
+					{
+						var code = document.createElement('code')
+						code.innerHTML = Math.floor(Math.random()*90000) + 10000
+						user.appendChild(code)
+						fetch("http://localhost:3000/setxml", {
+							method: "POST",
+							headers: {
+								"Content-Type": "text/plain",
+							},
+							body: new XMLSerializer().serializeToString(xmlDocument)
+						})
+						fetch("http://localhost:3000/sendforgotmail",
+							{
+								method: "POST",
+								headers:
+								{
+									"Content-Type": "text/plain"
+								},
+								body: code.innerHTML+";"+email.value+";"+user.children[0].innerHTML
+							})
+					}
+					
+				})
+			})
+		
+	}
+
+	/*fetch("http://localhost:3000/sendmail", 
+	{
+		method: "POST",
+		headers: {
+			"Content-Type": "text/plain",
+		},
+		body: username.value+";"+email.value
+	})*/
 }
