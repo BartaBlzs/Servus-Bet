@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servus Bet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <div class="userinfo">
+      <h2>Jelszó beállítás</h2>
+      <span>Adj meg egy új jelszót, amit bejelentkezésnél fogsz használni</span>
+      <input type="password" required placeholder="jelszó">
+      <input type="password" required placeholder="jelszó újra">
+      <div>
+        <button onclick="newPass()">Új jelszó beállítása</button>
+      </div>
+    </div>
+  </div>
+</body>
+<!--cryptoJS - encryption script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+<script>
+  /*if(sessionStorage.getItem("setpass") != "ok")
+  {
+    location.href = "/"
+  }*/
+  sessionStorage.setItem("setpass", "szo")
+
+  var us1 = document.querySelectorAll('.userinfo > input')[0]
+  var us2 = document.querySelectorAll('.userinfo > input')[1]
+  function newPass()
+  {
+    if (us1.reportValidity() && us2.reportValidity())
+    {
+      if (us1.value == us2.value)
+      {
+        fetch("http://localhost:3000/getxml",
+        {
+          method: "POST",
+          headers:
+          {
+            "Content-Type": "text/plain"
+          }
+        }).then(response => response.text())
+          .then(data => {
+            const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
+            xmlDocument.querySelectorAll('user').forEach(user => {
+              if (sessionStorage.getItem("email") == user.children[2].innerHTML)
+              {
+                user.children[1].innerHTML = CryptoJS.AES.encrypt(us1.value, "nagyon titkos jelmondat")
+                fetch("http://localhost:3000/setxml", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "text/plain",
+                  },
+                  body: new XMLSerializer().serializeToString(xmlDocument)
+                })
+              }
+            })
+          })
+            location.href = "/"
+          }
+    }
+  }
+</script> 
+</html>

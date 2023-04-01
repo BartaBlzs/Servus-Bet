@@ -45,9 +45,29 @@
       <button onclick="forgotPassword()">Kód küldése</button>
     </div>
   </div>
+  
+  <div class="userinfo codein">
+    <h2>Találd meg a Fiókodat</h2>
+    <span>Add meg az emailban kapott kódot</span>
+		<input type="text" required placeholder="kód">
+    <div>
+      <button onclick="forgotPasswordOK()">OK</button>
+    </div>
+  </div>
+
 </div>
 </body>
 <!--cryptoJS - encryption script-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 <script src="js/main.js"></script> 
 </html>
+
+<!--
+
+TODO:
+
+// az egész xml titkosítása client helyett serverrel
+// egy functiont csinálni a set és get xml post requestre
+// password reset make email case insensitive
+
+-->

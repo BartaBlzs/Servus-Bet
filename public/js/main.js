@@ -119,6 +119,7 @@ function forgotPasswordToggle()
 	document.querySelector('.forgotpass').style.display = 'block'
 }
 
+var curmail = "menano1827@djpich.com"
 function forgotPassword()
 {
 	var email = document.querySelector('.forgotpass > input')
@@ -138,7 +139,8 @@ function forgotPassword()
 				xmlDocument.querySelectorAll('user').forEach(user => {
 					if (user.children[2].innerHTML == email.value)
 					{
-						var code = document.createElement('code')
+						curmail = user.children[2].innerHTML
+						code = document.createElement('code')
 						code.innerHTML = Math.floor(Math.random()*90000) + 10000
 						user.appendChild(code)
 						fetch("http://localhost:3000/setxml", {
@@ -149,27 +151,58 @@ function forgotPassword()
 							body: new XMLSerializer().serializeToString(xmlDocument)
 						})
 						fetch("http://localhost:3000/sendforgotmail",
+						{
+							method: "POST",
+							headers:
 							{
-								method: "POST",
-								headers:
-								{
-									"Content-Type": "text/plain"
-								},
-								body: code.innerHTML+";"+email.value+";"+user.children[0].innerHTML
-							})
+								"Content-Type": "text/plain"
+							},
+							body: code.innerHTML+";"+email.value+";"+user.children[0].innerHTML
+						})
+						document.querySelector('.codein').style.display = 'block'
 					}
 					
 				})
 			})
 		
 	}
+}
 
-	/*fetch("http://localhost:3000/sendmail", 
+function forgotPasswordOK()
+{
+	var code = document.querySelector('.codein > input')
+	if (code.reportValidity())
 	{
-		method: "POST",
-		headers: {
-			"Content-Type": "text/plain",
-		},
-		body: username.value+";"+email.value
-	})*/
+		fetch("http://localhost:3000/getxml",
+		{
+			method: "POST",
+			headers:
+			{
+				"Content-Type": "text/plain"
+			}
+		}).then(response => response.text())
+		  .then(data => {
+				const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
+				xmlDocument.querySelectorAll('user').forEach(user => {
+					if (user.children[2].innerHTML == curmail)
+					{
+						if(code.value == user.children[4].innerHTML)
+						{
+							user.removeChild(user.children[4])
+							fetch("http://localhost:3000/setxml", {
+								method: "POST",
+								headers: {
+									"Content-Type": "text/plain",
+								},
+								body: new XMLSerializer().serializeToString(xmlDocument)
+							})
+							sessionStorage.setItem("setpass", "ok")
+							sessionStorage.setItem("email", curmail)
+							location.href = "/setpass"
+						}
+					}
+					
+				})
+			})
+	}
 }

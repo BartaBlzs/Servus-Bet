@@ -8,11 +8,9 @@ body {
   display: block;
 }
 
-.signup {
-  display: none;
-}
-
-.forgotpass
+.signup,
+.forgotpass,
+.codein 
 {
   display: none;
 }
