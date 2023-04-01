@@ -5,7 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servus Bet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 </head>
@@ -15,24 +17,37 @@
     <h2>Belépés</h2>
 		<input type="text" required placeholder="felhasználónév">
 		<input type="password" required placeholder="jelszó">
-        <div>
-            <a onclick="loginSignupToggle()">Nincs még fiókja?</a>
-            <button onclick="login()">Belépés</button>
-    	</div>
+    <a onclick="forgotPasswordToggle()">Elfelejtette jelszavát?</a>
+    <div>
+      <a onclick="loginSignupToggle()">Nincs még fiókja?</a>
+      <button onclick="login()">Belépés</button>
+    </div>
+
 	</div>
-	
+
 	<div class="userinfo signup">
     <h2>Regisztráció</h2>
 		<input type="text" required placeholder="felhasználónév">
 		<input type="email" required placeholder="email">
 		<input type="password" required placeholder="jelszó">
-        <div>
-            <a onclick="loginSignupToggle()">Van már fiókja?</a>
-            <button onclick="signup()">Regisztráció</button>
-    	</div>
+    <div>
+      <a onclick="loginSignupToggle()">Van már fiókja?</a>
+      <button onclick="signup()">Regisztráció</button>
+    </div>
+
 	</div>
+
+  <div class="userinfo forgotpass">
+    <h2>Találd meg a Fiókodat</h2>
+    <h5>Írd be az email címedet, hogy megtaláljuk a fiókodat</h5>
+		<input type="email" required placeholder="email">
+    <div>
+      <button onclick="forgotPassword()">Kód küldése</button>
+    </div>
+  </div>
 </div>
 </body>
+<!--cryptoJS - encryption script-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 <script src="js/main.js"></script> 
 </html>

@@ -12,6 +12,11 @@ body {
   display: none;
 }
 
+.forgotpass
+{
+  display: none;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -47,25 +52,31 @@ body {
   margin: 15px -10px;
 }
 
+.userinfo > a
+{
+  font-size: 14px;
+}
+
 .userinfo > div > button {
   font-family: "Asap", sans-serif;
   cursor: pointer;
   color: #fff;
   font-size: 16px;
   text-transform: none;
-  width: 100px;
+  width: 100%;
   border: 0;
   padding: 13px 0;
 
   border-radius: 7px;
-  background-color: rgba(25, 31, 35, 1);
+  background-color: rgb(35, 43, 48);
   transition: background-color 300ms;
 }
+
 .userinfo > div > button:hover {
   background-color: rgba(45, 51, 55, 1);
 }
 
-.userinfo > div > a
+a
 {
   color: rgba(25, 31, 35, 1);
   text-decoration: none;
@@ -74,7 +85,7 @@ body {
   white-space: nowrap;
 }
 
-.userinfo > div > a:hover
+a:hover
 {
   text-decoration: underline;
 }
@@ -85,4 +96,14 @@ body {
   justify-content: center;
   align-items: center;
   column-gap: 45%;
+}
+
+.forgotpass > h5
+{
+  color: rgba(25, 31, 35, 1);
+}
+
+.login > div
+{
+  margin-top: 20px;
 }

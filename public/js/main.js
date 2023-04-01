@@ -1,6 +1,6 @@
 function loginSignupToggle()
 {
-	if(getComputedStyle(document.querySelector('.login')).display == 'block')
+	if (getComputedStyle(document.querySelector('.login')).display == 'block')
 	{
 		document.querySelector('.login').style.display = 'none'
 		document.querySelector('.signup').style.display = 'block'
@@ -11,6 +11,22 @@ function loginSignupToggle()
 		document.querySelector('.signup').style.display = 'none'
 	}
 }
+
+//login on enter press
+document.querySelector('body').addEventListener('keypress', (e) =>
+{
+	if (e.key == 'Enter')
+	{
+		if (getComputedStyle(document.querySelector('.login')).display == 'block')
+		{
+			login()
+		}
+		else
+		{
+			signup()
+		}
+	}
+})
 
 function login()
 {
@@ -95,4 +111,23 @@ function setxml(name, mail, pass)
 				body: new XMLSerializer().serializeToString(xmlDocument)
 			}).then(location.href = "/")
     });
+}
+
+function forgotPasswordToggle()
+{
+	document.querySelector('.login').style.display = 'none'
+	document.querySelector('.forgotpass').style.display = 'block'
+}
+
+function forgotPassword()
+{
+
+	/*fetch("http://localhost:3000/sendmail", 
+		{
+			method: "POST",
+			headers: {
+				"Content-Type": "text/plain",
+			},
+			body: username.value+";"+email.value
+		})*/
 }
