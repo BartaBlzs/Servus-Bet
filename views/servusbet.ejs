@@ -5,16 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <div class="e"></div>
     <button onclick="logout()">s</button>
+    <div class="center">
+      <div class="under18">
+        <span>18 év alatt az oldal használata tilos</span>
+        <p>(5b) a 16. § szerinti nem folyamatosan szervezett sorsolásos játék kivételével - 18 éven aluli személyek nem vehetnek részt. A szerencsejáték-szervezőnek a játékosok részére a szerencsejátékban való részvétel biztosítása során az e törvényben és külön jogszabályban meghatározottak szerint figyelemfelkeltő módon tájékoztatást kell nyújtania a 18 éven aluli személyek játéktilalmáról, és a felelős játékszervezés elvének megfelelően el kell végeznie az e törvényben és külön jogszabályban előírt vagy az önkéntesen vállalt, a 18 éven aluli személyek játéktilalmának biztosítását szolgáló intézkedéseket. <br>(11) A játékkaszinót 18 éven aluliak nem látogathatják. <br>(4) Játékosként kizárólag természetes személy vehető nyilvántartásba. Ha a játékos életkora nem állapítható meg, vagy a 18. életév betöltése egyébként kétséges, a szervező a játékos nyilvántartásba vételét megtagadja.</p>
+      </div>
+    </div>
   </body>
   <script>
     function logout()
     {
       sessionStorage.setItem("username", "")
-      location.href = "/servusbet"
+      location.href = "/"
     }
     window.onload = () =>
     {
@@ -24,8 +31,15 @@
       }
       else
       {
-        location.href = "/"
+        //location.href = "/"
       }
+      setTimeout(() => {
+        document.querySelector('.under18').style.opacity = '0'
+        setTimeout(() => {
+          document.querySelector('.under18').style.display = 'none'
+        }, 500);
+      }, 3000);
+      
     }
   </script>
 </html>

@@ -1,3 +1,5 @@
+/*index*/
+
 body {
   background-color: rgba(25, 31, 35, 1);
   font-family: "Asap", sans-serif;
@@ -15,11 +17,21 @@ body {
   display: none;
 }
 
-.container {
+.container,
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.center
+{
+  color: whitesmoke;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(25, 31, 35, 1);
 }
 
 .userinfo {
@@ -105,4 +117,22 @@ a:hover
 .login > div
 {
   margin-top: 20px;
+}
+
+/*main page*/
+
+.under18
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  row-gap: 50px;
+  transition: opacity 500ms;
+}
+
+.under18 > span:first-child
+{
+  font-size: 30px;
 }

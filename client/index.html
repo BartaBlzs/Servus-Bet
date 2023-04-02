@@ -1,119 +1,35 @@
+<!-- this was created by code gpt ai -->
+
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servus Bet</title>
-  <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
-  <style>
-  body {
-    background-color: rgba(25, 31, 35, 1);
-    font-family: "Asap", sans-serif;
-    overflow: hidden;
-  }
-  
-  .login {
-    display: block;
-  }
-  
-  .signup {
-    display: none;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .userinfo {
-    position: relative;
-    overflow: hidden;
-    background-color: whitesmoke;
-    padding: 30px;
-    border-radius: 10px;
-    position: absolute;
-    width: 400px;
-  }
-  
-  .userinfo > input {
-    font-family: "Asap", sans-serif;
-    display: block;
-    border-radius: 5px;
-    font-size: 16px;
-    background: white;
-    width: 100%;
-    border: 0;
-    padding: 10px 10px;
-    margin: 15px -10px;
-  }
-  .userinfo > div > button {
-    font-family: "Asap", sans-serif;
-    cursor: pointer;
-    color: #fff;
-    font-size: 16px;
-    text-transform: none;
-    width: 100px;
-    border: 0;
-    padding: 13px 0;
-  
-    border-radius: 7px;
-    background-color: rgba(25, 31, 35, 1);
-    transition: background-color 300ms;
-  }
-  .userinfo > div > button:hover {
-    background-color: rgba(45, 51, 55, 1);
-  }
-  
-  .userinfo > div > a
-  {
-    color: rgba(25, 31, 35, 1);
-    text-decoration: none;
-    cursor: pointer;
-    width: 130px;
-    white-space: nowrap;
-  }
-  
-  .userinfo > div > a:hover
-  {
-    color: rgba(45, 51, 55, 1);
-  }
-  
-  .userinfo > div
-  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 45%;
-  }</style>
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   
-<div class="container">
-	<div class="userinfo login">
-		<input type="text" required placeholder="felhasználónév">
-		<input type="password" required placeholder="jelszó">
-        <div>
-            <a onclick="loginSignupToggle()">Nincs még fiókja?</a>
-            <button onclick="login()">Belépés</button>
-    	</div>
-	</div>
-	
-	<div class="userinfo signup">
-		<input type="text" required placeholder="felhasználónév">
-		<input type="password" required placeholder="jelszó">
-		<input type="email" required placeholder="email">
-        <div>
-            <a onclick="loginSignupToggle()">Van már fiókja?</a>
-            <button onclick="login()">Regisztráció</button>
-    	</div>
-	</div>
-</div>
-    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
-<script src="js/main.js"></script> 
 </html>
