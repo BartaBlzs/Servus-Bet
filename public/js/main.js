@@ -46,8 +46,7 @@ function login()
 		.then(data => {
 				const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
 				xmlDocument.querySelectorAll('user').forEach(user => {
-					if (user.children[0].innerHTML == username.value && 
-					    CryptoJS.AES.decrypt(user.children[1].innerHTML, "nagyon titkos jelmondat").toString(CryptoJS.enc.Utf8) == password.value)
+					if (user.children[0].innerHTML == username.value && user.children[1].innerHTML == password.value)
 					{
 						sessionStorage.setItem("username", user.children[0].innerHTML)
 						sessionStorage.setItem("currency", user.children[3].innerHTML)
@@ -95,8 +94,8 @@ function setxml(name, mail, pass)
 			var email = document.createElement('email')
 			var currency = document.createElement('currency')
 			username.innerHTML = name
-			password.innerHTML = CryptoJS.AES.encrypt(pass, "nagyon titkos jelmondat")
-			email.innerHTML = mail
+			password.innerHTML = pass
+			email.innerHTML = mail.toLowerCase()
 			currency.innerHTML = "0"
 			user.appendChild(username)
 			user.appendChild(password)
@@ -137,7 +136,7 @@ function forgotPassword()
 		  .then(data => {
 				const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
 				xmlDocument.querySelectorAll('user').forEach(user => {
-					if (user.children[2].innerHTML == email.value)
+					if (user.children[2].innerHTML == email.value.toLowerCase())
 					{
 						curmail = user.children[2].innerHTML
 						code = document.createElement('code')
@@ -206,3 +205,5 @@ function forgotPasswordOK()
 			})
 	}
 }
+
+//b25e3a7fe07a1fdc170388e55c4fec3a:a3191eadfb8c2e56f668dc6350f298

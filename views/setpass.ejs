@@ -24,13 +24,11 @@
     </div>
   </div>
 </body>
-<!--cryptoJS - encryption script-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 <script>
-  /*if(sessionStorage.getItem("setpass") != "ok")
+  if(sessionStorage.getItem("setpass") != "ok")
   {
     location.href = "/"
-  }*/
+  }
   sessionStorage.setItem("setpass", "szo")
 
   var us1 = document.querySelectorAll('.userinfo > input')[0]
@@ -54,7 +52,7 @@
             xmlDocument.querySelectorAll('user').forEach(user => {
               if (sessionStorage.getItem("email") == user.children[2].innerHTML)
               {
-                user.children[1].innerHTML = CryptoJS.AES.encrypt(us1.value, "nagyon titkos jelmondat")
+                user.children[1].innerHTML = us1.value
                 fetch("http://localhost:3000/setxml", {
                   method: "POST",
                   headers: {
@@ -65,9 +63,9 @@
               }
             })
           })
-            location.href = "/"
-          }
+          location.href = "/"
+      }
     }
   }
-</script> 
+</script>
 </html>
