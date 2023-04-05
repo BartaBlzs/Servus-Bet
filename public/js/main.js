@@ -118,7 +118,7 @@ function forgotPasswordToggle()
 	document.querySelector('.forgotpass').style.display = 'block'
 }
 
-var curmail = "menano1827@djpich.com"
+var curmail = ""
 function forgotPassword()
 {
 	var email = document.querySelector('.forgotpass > input')
@@ -138,6 +138,7 @@ function forgotPassword()
 				xmlDocument.querySelectorAll('user').forEach(user => {
 					if (user.children[2].innerHTML == email.value.toLowerCase())
 					{
+						user.querySelectorAll('code').forEach(c => c.remove())
 						curmail = user.children[2].innerHTML
 						code = document.createElement('code')
 						code.innerHTML = Math.floor(Math.random()*90000) + 10000

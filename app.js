@@ -94,7 +94,7 @@ app.post("/getxml", bodyParser.text({type: '*/*'}), (req, res) => {
       console.error(err);
       return;
     }
-
+    console.log(decrypt(data))
     res.send(decrypt(data));
   })
 })
