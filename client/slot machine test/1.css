@@ -169,7 +169,6 @@ input
   width: 150px;
   border: none;
   padding: 10px 10px;
-  margin: 15px -10px;
 }
 
 .inters
@@ -185,17 +184,24 @@ input
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 15%;
   background: rgb(226, 227, 228);
   border-radius: 5px;
   font-size: 18px;
   height: 100px;
   width: 50%;
+
 }
 
 .row
 {
   display: flex;
   gap: 50px;
+}
+
+.currency::after
+{
+  content: " Ft";
 }
 
 .inters > .row > button
@@ -227,4 +233,31 @@ input
 {
   border-style: inset;
   font-size: 21px;
+}
+
+input.animation {
+  animation: shake 0.15s ease-in-out 0s 2;
+  box-shadow: 0 0 0.6rem rgba(155, 12, 12, 0.678);
+}
+
+span.animation 
+{
+  animation: shake 0.15s ease-in-out 0s 2;
+  text-shadow: 0 0 0.6rem rgba(155, 12, 12, 0.678);
+}
+
+
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
 }

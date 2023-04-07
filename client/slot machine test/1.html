@@ -45,7 +45,7 @@
     <div class="row">
       <div class="inf">
         <span>Egyenleg:</span>
-        <span></span>
+        <span class="currency"></span>
       </div>
       <div class="inf">
         <span>Tét: (Max: 20000 Ft)</span>
@@ -65,26 +65,79 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 <script>
+var currency = document.querySelector('.currency')
+var bet = document.querySelector('.bet')
+const doors = document.querySelectorAll(".door")
+sessionStorage.setItem("currency", 10000)
+currency.innerHTML = sessionStorage.getItem("currency")
+
 function checkwin()
 {
-  console.log("zsa")
-}
-  const leverControl = document.querySelector('.lever-control')
-  var animationRunning = false
-  
-  const items = [
-    "🗿",
-    "💸",
-    "📉",
-    "💩",
-    "👎",
-    "🍀",
-    "💰",
-    "🍣",
-    "❌"
-  ]
 
-  const doors = document.querySelectorAll(".door");
+  var dict = 
+  {
+    "🗿": 0,
+    "💸": 0,
+    "📉": 0,
+    "💩": 0,
+    "👎": 0,
+    "🍀": 0,
+    "💰": 0,
+    "🍣": 0,
+    "❌": 0
+  }
+
+  for (var door of doors)
+  {
+    for (var key in dict)
+    {
+      if (key == door.dataset.lastDisplayed)
+      {
+        dict[key] = dict[key]+1
+      }
+    }
+  }
+
+  var items = Object.keys(dict).map(function(key) {
+    return [key, dict[key]];
+  });
+
+  items.sort(function(a, b) {
+    return b[1] - a[1];
+  });
+
+  /*items.sort(function(first, second) {
+    return second[1] - first[1];
+  });*/
+
+  console.log(items[0])
+
+  if (items[0][1] == 2)
+  {
+    currency.innerHTML = currency.innerHTML*1 + bet.value*2
+  }
+
+  if (items[0][1] == 3)
+  {
+    if (items[0][0] != "❌") currency.innerHTML = currency.innerHTML*1 + bet.value*10
+  }
+  
+}
+
+const leverControl = document.querySelector('.lever-control')
+var animationRunning = false
+
+const items = [
+  "🗿",
+  "💸",
+  "📉",
+  "💩",
+  "👎",
+  "🍀",
+  "💰",
+  "🍣",
+  "❌"
+]
 
 async function spin() {
   init(1, 2);
@@ -151,10 +204,9 @@ function shuffle([...arr]) {
   return arr;
 }
 init()
-var bet = document.querySelector('.bet')
 
 document.querySelector('.onebet').addEventListener('click', () => {
-  if (bet.value < 20000) {
+  if (bet.value*1 < 20000) {
     bet.value = bet.value*1 + 1000
   }
 })
@@ -163,35 +215,57 @@ document.querySelector('.maxbet').addEventListener('click', () => {
   bet.value = 20000
 })
 
-
 document.querySelector('.spin').addEventListener('click', () => {
-  if(!animationRunning)
+  if (currency.innerHTML*1 >= bet.value && bet.value >= 1000 && bet.value <= 20000)
   {
-    animationRunning = true
-    spin()
-    gsap.fromTo(".lever", { rotate: -70 }, 
+    if (!animationRunning)
     {
-      rotate: 70,
-      duration: ".8",
-      repeat: 0,
-      ease: "Sine.out"
-    })
-    setTimeout(() => {
-      gsap.fromTo(".lever", {
-      rotate: 70
-      }, 
+      currency.innerHTML = currency.innerHTML*1 - bet.value
+      animationRunning = true
+      spin()
+      gsap.fromTo(".lever", { rotate: -70 }, 
       {
-      rotate: -70,
-      duration: ".4",
-      repeat: 0,
-      ease: "Sine.out"
+        rotate: 70,
+        duration: ".8",
+        repeat: 0,
+        ease: "Sine.out"
       })
-    }, 1200)
-    setTimeout(() => {
-      checkwin()
-      animationRunning = false
-    }, 2500)
+      setTimeout(() => {
+        gsap.fromTo(".lever", {
+        rotate: 70
+        }, 
+        {
+        rotate: -70,
+        duration: ".4",
+        repeat: 0,
+        ease: "Sine.out"
+        })
+      }, 1200)
+      setTimeout(() => {
+        checkwin()
+        animationRunning = false
+      }, 2500)
+    }
   }
-});
+  else if (bet.value <= 1000 || bet.value >= 20000)
+  {
+    shake(bet)
+  }
+  else if (!animationRunning)
+  {
+    shake(currency)
+  }
+})
+
+function shake(element)
+{
+  if (!element.classList.contains('animation'))
+    {
+      element.classList.add('animation')
+      setTimeout(() => {
+        element.classList.remove('animation')
+      }, 400);
+    }
+}
 </script>
 </html>
