@@ -23,12 +23,12 @@ var transporter = nodemailer.createTransport({
 });
 
 // Files
-
 app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public/css"));
 app.use("/js", express.static(__dirname + "public/js"));
 app.use("/source", express.static(__dirname + "public/source"));
 app.use("/img", express.static(__dirname + "public/img"));
+
 // Set views
 
 app.set("views", "./views");
@@ -46,6 +46,9 @@ app.get("/servusbet", (req, res) => {
 
 app.get("/setpass", (req, res) => {
   res.render("setpass")
+})
+app.get("/games/slotmachine", (req, res) => {
+  res.render("games/slotmachine")
 })
 
 app.post("/sendmail", bodyParser.text({type: '*/*'}), (req, res) => {

@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Asap', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(25, 31, 35, 1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img
+{
+  position: absolute;
+  width: 800px;
+  pointer-events: none;
+}
+
+.app
+{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  width: 650px;
+  height: 500px;
+}
+
+.row
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 33%;
+}
+
+.jp
+{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 80px;
+  color: rgb(128, 0, 0);
+}
+
+.doors {
+  position: relative;
+  display: flex;
+  top: 25px;
+  left: 45px;
+}
+
+.door {
+  background: rgb(226, 227, 228);
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+  width: 100px;
+  height: 150px;
+  overflow: hidden;
+
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+
+.boxes {
+  transition: transform 1s ease-in-out;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 3rem;
+}
+
+.lever-control 
+{
+  position: relative;
+  width: 54px;
+  padding-top: 42px;
+  display: flex;
+  transform: rotate(90deg);
+  left: 100px;
+}
+
+.lever 
+{
+  position: absolute;
+  left: 40px;
+  top: -80px;
+  transform: rotate(-70deg);
+  transform-origin: 50% 100%;
+}
+
+.knob 
+{
+  position: relative;
+  top: 1px;
+  background: linear-gradient(180deg, rgb(114, 22, 22) 0%, rgb(71, 4, 4) 100%);
+  height: 40px;
+  width: 20px;
+  border-radius: 5px 5px 2px 2px ;
+}
+
+.stick 
+{
+  width: 15px;
+  height: 120px;
+  background: linear-gradient(180deg, rgba(114, 22, 22) 0%, rgba(173,0,0,1) 50%);
+  margin: 0 auto;
+}
+
+.lever-base 
+{
+  position: relative;
+  width: 51px;
+}
+
+.pivot
+{
+  position: relative;
+  width: 80px;
+  height: 30px;
+  left: 10px;
+  border-radius: 50px 50px 0 0;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input
+{
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 150px;
+  border: none;
+  padding: 10px 10px;
+}
+
+.inters
+{
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.inf
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15%;
+  background: rgb(226, 227, 228);
+  border-radius: 5px;
+  font-size: 18px;
+  height: 100px;
+  width: 50%;
+
+}
+
+.row
+{
+  display: flex;
+  gap: 50px;
+}
+
+.currency::after
+{
+  content: " Ft";
+}
+
+.inters > .row > button
+{
+  outline: none;
+  border: 5px rgb(23, 67, 187) outset;
+  background: rgb(166, 178, 207);
+  border-radius: 50px;
+  height: 70px;
+  width: 150px;
+  font-size: 22px;
+  font-family: 'Asap', sans-serif;
+  cursor: pointer;
+}
+
+.inters > .row > button:nth-child(1)
+{
+  border-color: rgb(152, 155, 12);
+  background: rgb(215, 216, 177);
+}
+
+.inters > .row > button:nth-child(2)
+{
+  border-color: rgb(155, 12, 12);
+  background: rgb(218, 189, 189);
+}
+
+.inters > .row > button:active
+{
+  border-style: inset;
+  font-size: 21px;
+}
+
+input.animation {
+  animation: shake 0.15s ease-in-out 0s 2;
+  box-shadow: 0 0 0.6rem rgba(155, 12, 12, 0.678);
+}
+
+span.animation 
+{
+  animation: shake 0.15s ease-in-out 0s 2;
+  text-shadow: 0 0 0.6rem rgba(155, 12, 12, 0.678);
+}
+
+
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}

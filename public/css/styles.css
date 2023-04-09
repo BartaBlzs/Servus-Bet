@@ -21,10 +21,141 @@ body {
   overflow: hidden;
 }
 
+.login {
+  display: block;
+}
+
 .loginbody
 {
   color: black;
 }
+
+.signup,
+.forgotpass,
+.codein 
+{
+  display: none;
+}
+
+.container,
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.center
+{
+  color: whitesmoke;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--bgcolor);
+}
+
+.under18
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  row-gap: 50px;
+  transition: opacity 500ms;
+}
+
+.under18 > span:first-child
+{
+  font-size: 30px;
+}
+
+.userinfo {
+  position: relative;
+  overflow: hidden;
+  background-color: whitesmoke;
+  padding: 10px 30px 20px 30px;
+  border-radius: 10px;
+  position: absolute;
+  width: 450px;
+  user-select: none;
+}
+
+.userinfo > h2
+{
+  text-align: center;
+}
+
+.userinfo > input {
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+
+.userinfo > a
+{
+  font-size: 14px;
+}
+
+.userinfo > div > button {
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: none;
+  width: 100%;
+  border: 0;
+  padding: 13px 0;
+
+  border-radius: 7px;
+  background-color: rgb(35, 43, 48);
+  transition: background-color 300ms;
+}
+
+.userinfo > div > button:hover {
+  background-color: rgba(45, 51, 55, 1);
+}
+
+a
+{
+  color: rgba(25, 31, 35, 1);
+  text-decoration: none;
+  cursor: pointer;
+  width: 130px;
+  white-space: nowrap;
+}
+
+a:hover
+{
+  text-decoration: underline;
+}
+
+.userinfo > div
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 45%;
+}
+
+.forgotpass > span
+{
+  font-size: 16px;
+  color: rgba(25, 31, 35, 1);
+}
+
+.login > div
+{
+  margin-top: 20px;
+}
+
+/*main page*/
 
 .gridcont {
   display: grid;
@@ -188,8 +319,4 @@ body {
   background: rgb(128, 128, 128);
   color: var(--fontcolor);
   font-size: 30px;
-}
-
-.playbtn:hover
-{
 }
