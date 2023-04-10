@@ -5,6 +5,8 @@
   --dropdown-iconcolor: #9d9d9d;
   --hovercolor: rgb(34, 41, 46);/*rgb(192,192,192);*/
   --bordercolor: #42602f;/*rgb(105, 105, 105);*/
+  /*bootstrap*/
+  --bs-dropdown-link-active-bg: black;
 }
 
 * 
@@ -122,7 +124,7 @@ body {
   background-color: rgba(45, 51, 55, 1);
 }
 
-a
+.userinfo div a
 {
   color: rgba(25, 31, 35, 1);
   text-decoration: none;
@@ -177,44 +179,73 @@ a:hover
 
 /* theme change */
 
-.dropdown-toggle 
+.ddbtn
 {
+  position: relative;
   background: transparent;
   border: none;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  padding: 0;
 }
 
-.dropdown-toggle::before
+.cont 
 {
-  color: var(--dropdown-iconcolor);
-  transform: rotate(-90deg);
+  right: 40px;
+}
+
+.dropdown-divider
+{
+  border-top: 1px solid rgb(133, 133, 133);
 }
 
 .dropdown-item i
 {
   width: 20px;
-  color: #9d9d9d;
-  margin-top: 4px;
-}
-
-.dropdown-item i:nth-child(3)
-{
-  margin-left: 35px;
-}
-
-.dropdown-toggle i
-{
   color: var(--dropdown-iconcolor);
+  text-align: center;
 }
 
 .dropdown-item
 {
+  cursor: pointer;
+  height: 35px;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 20px;
+  padding: 0 10px;
 }
 
-.dropdown-menu li
+button.ddbtn a 
 {
-  cursor: pointer;
+  margin-left: 20px;
+  color: var(--fontcolor);
+}
+
+.ddbtn i
+{
+  color: var(--dropdown-iconcolor);
+}
+
+.ddbtn img 
+{
+  height: 40px;
+}
+
+.dropdown-menu
+{
+  width: 250px;
+  border: 1px solid rgb(85, 85, 85);
+}
+
+.accountdetail
+{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .item-2 {

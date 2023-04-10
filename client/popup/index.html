@@ -1,0 +1,44 @@
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Popup Modal Box</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="profile">
+            <div id="hireBtn" class="button">
+                <button>Hire me</button>
+            </div>
+        </div>
+
+        <div class="popup-outer none">
+            <div class="popup-box">
+                <i class="fa-solid fa-xmark close"></i>
+                
+                
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<script src="https://kit.fontawesome.com/f359bbbf40.js" crossorigin="anonymous"></script>
+<script>
+const section = document.querySelector("section"),
+hireBtn = section.querySelector("#hireBtn")
+
+hireBtn.addEventListener("click" , () =>{
+  section.classList.add("show")
+})
+
+document.querySelector('.close').addEventListener("click" , ()=>{
+    section.classList.remove("show")
+})
+
+</script>
+</html>

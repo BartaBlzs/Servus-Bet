@@ -17,18 +17,31 @@
 
   <div class="item item-2">
       <!-- Bootstrap -->
-      <div class="dropstart">
-        <i class="dropdown-togglebefore"></i>
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-cloud-moon"></i>
+      
+
+      <div class="btn-group">
+        <button class="ddbtn cont" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+          <img src="img/userAvatar.png" alt="">
         </button>
-        <ul class="dropdown-menu dropdown-menu-dark">
-          <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-cloud-moon"></i><a>Sötét</a><i class="fa-solid fa-check"></i></span></li>
-          <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-sun"></i><a>Világos</a></span></li>
-          <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-gears"></i><a>Auto</a></span></li>
+        <ul class="dropdown-menu dropdown-menu-dark show" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-40px, 42px);">
+          <li class="accountdetail"><span></span><span></span></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><span class="dropdown-item"><i class="fa-solid fa-user"></i><a>Fiók</a></span></li>
+          <li>
+            <div class="dropstart dropdown-item">
+              <button class="ddbtn" type="button" data-bs-toggle="dropdown" data-bs-offset="0, 9" aria-expanded="false">
+                <i class="fa-solid fa-cloud-moon"></i><a style="color: var(--bs-dropdown-link-color)">Téma</a>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-cloud-moon"></i><a>Sötét</a><i class="fa-solid fa-check"></i></span></li>
+                <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-sun"></i><a>Világos</a></span></li>
+                <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-gears"></i><a>Auto</a></span></li>
+              </ul>
+            </div>
+        </li>
+          <li><span class="dropdown-item"><a>Sötét</a></span></li>
         </ul>
       </div>
-      <h2>Egyenleg</h2>
   </div>
   
   <div class="item item-3">
@@ -63,7 +76,7 @@
   </div>
 </div>
 
-<div class="center">
+<div class="center" hidden>
   <div class="under18">
     <span>18 év alatt az oldal használata tilos</span>
     <p>(5b) a 16. § szerinti nem folyamatosan szervezett sorsolásos játék kivételével - 18 éven aluli személyek nem vehetnek részt. A szerencsejáték-szervezőnek a játékosok részére a szerencsejátékban való részvétel biztosítása során az e törvényben és külön jogszabályban meghatározottak szerint figyelemfelkeltő módon tájékoztatást kell nyújtania a 18 éven aluli személyek játéktilalmáról, és a felelős játékszervezés elvének megfelelően el kell végeznie az e törvényben és külön jogszabályban előírt vagy az önkéntesen vállalt, a 18 éven aluli személyek játéktilalmának biztosítását szolgáló intézkedéseket. <br>(11) A játékkaszinót 18 éven aluliak nem látogathatják. <br>(4) Játékosként kizárólag természetes személy vehető nyilvántartásba. Ha a játékos életkora nem állapítható meg, vagy a 18. életév betöltése egyébként kétséges, a szervező a játékos nyilvántartásba vételét megtagadja.</p>
@@ -84,7 +97,8 @@ window.onload = () =>
 {
   if (sessionStorage.getItem("username") != "" && sessionStorage.getItem("username") != null)
   {
-    //document.querySelector('.e').innerHTML = sessionStorage.getItem("username")
+    document.querySelector('.accountdetail').children[0].innerHTML = sessionStorage.getItem('username')
+    document.querySelector('.accountdetail').children[1].innerHTML = sessionStorage.getItem('emailadress')
   }
   else
   {
@@ -134,7 +148,7 @@ function themeChange(btn)
     r.style.setProperty('--fontcolor', 'white');
     r.style.setProperty('--dropdown-iconcolor', '#9d9d9d');
     r.style.setProperty('--hovercolor', 'rgb(34, 41, 46)');
-    document.querySelector('.dropdown-menu').classList.add('dropdown-menu-dark')
+    document.querySelectorAll('.dropdown-menu').forEach(e => e.classList.add('dropdown-menu-dark'))
   }
 
   function light()
@@ -143,7 +157,7 @@ function themeChange(btn)
     r.style.setProperty('--fontcolor', 'black');
     r.style.setProperty('--dropdown-iconcolor', '#5f5f5f');
     r.style.setProperty('--hovercolor', 'rgb(192, 192, 192)');
-    document.querySelector('.dropdown-menu').classList.remove('dropdown-menu-dark')
+    document.querySelectorAll('.dropdown-menu').forEach(e => e.classList.remove('dropdown-menu-dark'))
   }
 }
 

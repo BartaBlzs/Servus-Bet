@@ -49,6 +49,7 @@ function login()
 					if (user.children[0].innerHTML == username.value && user.children[1].innerHTML == password.value)
 					{
 						sessionStorage.setItem("username", user.children[0].innerHTML)
+						sessionStorage.setItem("emailadress", user.children[2].innerHTML)
 						sessionStorage.setItem("currency", user.children[3].innerHTML)
 						location.href = "/servusbet"
 					}
