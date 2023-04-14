@@ -280,13 +280,15 @@ button.ddbtn a
   align-items: center;
     
   background-color: var(--bgcolor);
+  font-size: 20px;  
   outline: none;
   color: var(--fontcolor);
+  user-select: none;
   cursor: pointer;
   transition: background 250ms;
 }
 
-.item-3 a:nth-child(5){
+.item-3 a:last-child{
   border-bottom: 1px solid var(--bordercolor);
 }
 
@@ -299,7 +301,7 @@ button.ddbtn a
   background: var(--hovercolor);
 }
 
-.item-4 {
+.item-4 > div {
   grid-area: main;
   justify-self: center;
   align-self: center;
@@ -310,10 +312,15 @@ button.ddbtn a
   border-top: 1px solid var(--bordercolor);
   border-left: 1px solid var(--bordercolor);
 
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+div.page-active
+{
+  display: flex;
 }
 
 .carousel
@@ -338,7 +345,7 @@ button.ddbtn a
   height: 400px;
 }
 
-.item-4 > button 
+.item-4 > div > button 
 {
   width: 40%;
   height: 10%;

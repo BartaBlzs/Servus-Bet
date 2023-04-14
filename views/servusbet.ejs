@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servus Bet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
   </head>
   <body>
 <div class="gridcont">
@@ -21,7 +22,7 @@
 
       <div class="btn-group">
         <button class="ddbtn cont" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-          <img src="img/userAvatar.png" alt="">
+          <img src="/img/userAvatar.png" alt="">
         </button>
         <ul class="dropdown-menu dropdown-menu-dark show" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-40px, 42px);">
           <li class="accountdetail"><span></span><span></span></li>
@@ -45,34 +46,123 @@
   </div>
   
   <div class="item item-3">
-    <a class="active">Jatek 1</a>
-    <a>Jatek 2</a>
-    <a>Jatek 3</a>
-    <a>Jatek 4</a>
-    <a>Jatek 5</a>
+    <a class="active">Nyerőgép</a>
+    <a>Blackjack</a>
+    <a>Roulette</a>
+    <a>Kockajáték</a>
   </div>
 
+<!-- Bootstrap -->
   <div class="item item-4">
-    <!-- Bootstrap -->
-    <div class="carousel slide" data-bs-ride="carousel">
+
+    <div class="slotmachine-page page-active">
+      <div class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="img/jackpot2.jpg" class="d-block w-100" alt="...">
+            <img src="img/slot/slot1.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="img/777.png" class="d-block w-100" alt="...">
+            <img src="img/slot/slot2.png" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="img/tuljo.jpg" class="d-block w-100" alt="...">
+            <img src="img/slot/slot3.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/slot/slot4.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/slot/slot5.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/slot/slot6.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
+      </div>
+      <div class="parahhh">
+        <p>Az első nyerőgép a 19. században készült el és Charles Fey nevéhez fűződik. Az úriember Németországban élt, majd gondolt egy nagyot és a lehetőségek hazájába, Amerikába költözött. Charles Fey aztán itt, pontosabban Kaliforniában alkotta meg az első nyerőgépet, 1895-ben. Az első nyerőgép a háromtárcsás volt, majd a 20. század közepén kerültek először szimbólumok a nyerőgépekre. Majd elérkezünk a nyerőgépek harmadik fejlődési szakaszához, amit a ma embere is élvezhet, azaz az internet segítségével, a számítógépen is elérhető online nyerőgépes játékokhoz.</p>
+      </div>
+
+      <button class="btn btn-secondary playbtn" onclick="game('slot')">Játék!</button>
     </div>
 
-    <div class="parahhh">
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos sed officiis nostrum fugit doloremque expedita ab, similique minima dolorem eius architecto a libero quis. Voluptatibus error debitis necessitatibus aliquam iure nemo veritatis neque ipsum molestiae deserunt eveniet assumenda eligendi, accusantium numquam repellendus tempora ut illum voluptate! Praesentium quo commodi excepturi dolorum vero ab mollitia, odio voluptatibus voluptatum officia? Numquam placeat nihil laudantium iusto optio officia impedit adipisci explicabo voluptatem ea cupiditate, earum autem ipsam illo dolore quo nulla magni expedita, nisi dicta mollitia maiores quibusdam nostrum asperiores? Dolorum in error neque? Deserunt doloribus dolore voluptatem, molestias perspiciatis quo odio quod reprehenderit sapiente dignissimos neque tempore in esse facere cupiditate dolor facilis ab error ipsa iste quibusdam expedita similique autem? Blanditiis.</p>
+    <div class="blackjack-page">
+      <div class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/blackjack/blackjack2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/blackjack/blackjack3.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/blackjack/blackjack4.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/blackjack/blackjack5.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/blackjack/blackjack6.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+      <div class="parahhh">
+        <p>A BlackJack egy kártyajáték, melyet 52 lapos francia kártyával játszanak dzsókerek nélkül. A játék célja, hogy a játékos lapjai összértéke minél közelebb legyen a huszonegyhez, de azt ne lépje túl. Elődjének a „huszonegy” és a „pontoon” játékok tekinthetők. Kezdetben főleg Franciaországban, Olaszországban és Spanyolországban játszották, Amerikában csak akkor vált népszerűvé, amikor kidolgoztak egy extra nyereményt. Ez volt a Black Jack, amelyet egy pikk ász és egy fekete bubi kombinációjával lehetett létrehozni, és 10:1 arányban fizetett.</p>
+      </div>
+      <button class="btn btn-secondary playbtn" onclick="game('slot')">Játék!</button>
     </div>
 
-    <button class="btn btn-secondary playbtn" onclick="game('slot')">Játék!</button>
+      <div class="roulette-page">
+        <div class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/roulette/roulette1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/roulette/roulette2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/roulette/roulette3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/roulette/roulette4.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="img/roulette/roulette5.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+        </div>
+        <div class="parahhh">
+          <p>A rulett egy főleg kaszinókban és játéktermekben elterjedt szerencsejáték. Neve a francia roulette, azaz kis kerék kifejezésből ered. Története egészen az ókorig vezethető vissza, de pontos eredetére több elmélet is létezik, azonban ezek egyike sem bizonyított. A játék lényege, hogy a játékvezető (krupié) által, a tárcsa forgási irányával ellentétesen elgurított golyónak a megérkezési pozíciójára lehet fogadni. Minden boxhoz szám és szín tartozik, ezek különböző kombinációjára lehet tétet helyezni. A tétek az eséllyel közel arányos nyereményekkel kecsegtetik a játékosokat.</p>
+        </div>
+    
+        <button class="btn btn-secondary playbtn" onclick="game('slot')">Játék!</button>
+      </div>
+
+      <div class="dice-page">
+        <div class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/dice/dice1.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/dice/dice2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/dice/dice3.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/dice/dice4.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/dice/dice5.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+        </div>
+        <div class="parahhh">
+          <p>Az ókori Európában közkedvelt jóslási forma és szerencsejáték volt a kockavetés. Ezt két kockával, egy pohár segítségével játszották, és az eredményre fogadást kötöttek, vagy misztikus jelentést tulajdonítottak neki. Ebből alakult ki a napjainkban a kaszinókban játszott kockajáték és a kockapóker, a póker egyszerűbb változata.</p>
+        </div>
+          <button class="btn btn-secondary playbtn" onclick="game('slot')">Játék!</button>
+      </div>
   </div>
 </div>
 
@@ -87,6 +177,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f359bbbf40.js" crossorigin="anonymous"></script>
 <script>
+
 function logout()
 {
   sessionStorage.setItem("username", "")
@@ -163,11 +254,17 @@ function themeChange(btn)
 
 
 document.querySelectorAll('.item-3 > a').forEach(btn => {
-  btn.addEventListener('click', ()=>
+  btn.addEventListener('click', () =>
   {
     // bg color change
       document.querySelector('.active').classList.remove('active')
       btn.classList.add('active')
+      document.querySelector('.page-active').classList.remove('page-active')
+      
+      if (btn.innerHTML == "Nyerőgép") document.querySelector('.slotmachine-page').classList.add('page-active')
+      else if (btn.innerHTML == "Blackjack") document.querySelector('.blackjack-page').classList.add('page-active')
+      else if (btn.innerHTML == "Roulette") document.querySelector('.roulette-page').classList.add('page-active')
+      else if (btn.innerHTML == "Kockajáték") document.querySelector('.dice-page').classList.add('page-active')
     })
 })
 
