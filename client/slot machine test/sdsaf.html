@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.form input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  font-size: 1rem;
+}
+
+.form button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form p {
+  font-size: 0.8rem;
+}
+
+.form span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+</style>
+</head>
+<body>
+    <div class="form" id="login-form-section">
+        <h1>Login</h1>
+        <form id="login-form">
+          <input type="text" placeholder="Username">
+          <input type="password" placeholder="Password">
+          <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <span id="register-toggle">Register</span></p>
+      </div>
+      
+      <div class="form hidden" id="register-form-section">
+        <h1>Register</h1>
+        <form id="register-form">
+          <input type="text" placeholder="Username">
+          <input type="password" placeholder="Password">
+          <input type="password" placeholder="Confirm Password">
+          <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <span id="login-toggle">Login</span></p>
+      </div>
+</body>
+<script>
+const loginFormSection = document.getElementById('login-form-section');
+const registerFormSection = document.getElementById('register-form-section');
+const loginForm = document.getElementById('login-form');
+const registerForm = document.getElementById('register-form');
+const loginToggle = document.getElementById('login-toggle');
+const registerToggle = document.getElementById('register-toggle');
+
+loginToggle.addEventListener('click', () => {
+  registerFormSection.classList.add('hidden');
+  loginFormSection.classList.remove('hidden');
+});
+
+registerToggle.addEventListener('click', () => {
+  loginFormSection.classList.add('hidden');
+  registerFormSection.classList.remove('hidden');
+});
+
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  console.log('Form submitted!');
+});
+
+registerForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  console.log('Form submitted!');
+});
+
+</script>
+</html>

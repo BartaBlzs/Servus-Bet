@@ -16,9 +16,11 @@
 <body class="loginbody">
 <div class="container">
 	<div class="userinfo login">
+
     <h2>Belépés</h2>
 		<input type="text" required placeholder="felhasználónév">
-		<input type="password" required placeholder="jelszó">
+    <button  onmousedown="revealPass()" onmouseup="hidePass()" onmouseout="hidePass()"><i class="fa-solid fa-eye"></i></button>
+    <input type="password" required placeholder="jelszó">
     <a onclick="forgotPasswordToggle()">Elfelejtette jelszavát?</a>
     <div>
       <a onclick="loginSignupToggle()">Nincs még fiókja?</a>
@@ -28,6 +30,7 @@
 	</div>
 
 	<div class="userinfo signup">
+
     <h2>Regisztráció</h2>
 		<input type="text" required placeholder="felhasználónév">
 		<input type="email" required placeholder="email">
@@ -36,29 +39,35 @@
       <a onclick="loginSignupToggle()">Van már fiókja?</a>
       <button onclick="signup()">Regisztráció</button>
     </div>
+
 	</div>
 
   <div class="userinfo forgotpass">
+
     <h2>Találd meg a Fiókodat</h2>
     <span>Írd be az email címed, hogy megtaláljuk a fiókodat</span>
 		<input type="email" required placeholder="email">
     <div>
       <button onclick="forgotPassword()">Kód küldése</button>
     </div>
+
   </div>
   
   <div class="userinfo codein">
+
     <h2>Találd meg a Fiókodat</h2>
     <span>Add meg az emailban kapott kódot</span>
 		<input type="text" required placeholder="kód">
     <div>
       <button onclick="forgotPasswordOK()">OK</button>
     </div>
+
   </div>
 
 </div>
 </body>
-<script src="js/main.js"></script> 
+<script src="https://kit.fontawesome.com/f359bbbf40.js" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
 </html>
 
 <!--

@@ -80,6 +80,74 @@
       <img src="/img/slot/jackpotMachine.png" alt="">
       <img src="/img/slot/jackpotStickBase.png" alt="">
     </div>
+    
+    <section>
+    <div class="info">
+      <button class="openPopup">
+        <i class="fa-solid fa-question"></i>
+      </button>
+    </div>
+
+    <div class="popup-outer none" onclick="del()">
+        <div class="popup-box">
+            <i class="fa-solid fa-xmark close"></i>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Symbols</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                    <tr>
+                        <td>🗿</td>
+                        <td>200%</td>
+                        <td>500%</td>
+                    </tr>
+                    <tr>
+                        <td>💸</td>
+                        <td>150%</td>
+                        <td>800%</td>
+                    </tr>
+                    <tr>
+                        <td>📉</td>
+                        <td>60%</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>💩</td>
+                        <td>30%</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>👎</td>
+                        <td>50%</td>
+                        <td>30%</td>
+                    </tr>
+                    <tr>
+                        <td>🍀</td>
+                        <td>400%</td>
+                        <td>1000%</td>
+                    </tr>
+                    <tr>
+                        <td>💰</td>
+                        <td>200%</td>
+                        <td>900%</td>
+                    </tr>
+                    <tr>
+                        <td>🍣</td>
+                        <td>120%</td>
+                        <td>250%</td>
+                    </tr>
+                    <tr>
+                        <td>❌</td>
+                        <td>5%</td>
+                        <td>0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </section>
 
     <div class="inters">
       <div class="rowrow">
@@ -107,6 +175,32 @@
 <script src="https://kit.fontawesome.com/f359bbbf40.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 <script>
+
+/* popup */
+const section = document.querySelector("section")
+let isMouseOver = false
+
+document.querySelector('.popup-box').addEventListener("mouseleave", () => {
+  isMouseOver = false
+}, false);
+
+document.querySelector('.popup-box').addEventListener("mouseover", () => {
+  isMouseOver = true
+}, false);
+
+document.querySelector('.openPopup').addEventListener("click" , () =>{
+  section.classList.add("show")
+})
+
+document.querySelector('.close').addEventListener("click" , ()=>{
+    section.classList.remove("show")
+})
+
+function del()
+{
+    if(!isMouseOver) section.classList.remove("show")
+}
+/* popup end */
 
 if (sessionStorage.getItem("username") != "" && sessionStorage.getItem("username") != null)
 {

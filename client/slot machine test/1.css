@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(25, 31, 35, 1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img
+{
+  position: absolute;
+  width: 800px;
+  pointer-events: none;
+}
+
+.app
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.row
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 33%;
+}
+
+.jp
+{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 80px;
+  color: rgb(128, 0, 0);
+}
+
+.doors {
+  position: relative;
+  display: flex;
+  top: 20px;
+
+  left: 20px;
+}
+
+.door {
+  background: rgb(226, 227, 228);
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+  width: 100px;
+  height: 150px;
+  overflow: hidden;
+
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+
+.boxes {
+  transition: transform 1s ease-in-out;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 3rem;
+}
+
+.lever-control 
+{
+  position: relative;
+  width: 54px;
+  padding-top: 42px;
+  cursor: pointer;
+  display: flex;
+  transform: rotate(90deg);
+  left: 98px;
+}
+
+.lever 
+{
+  position: absolute;
+  left: 40px;
+  top: -80px;
+  transform: rotate(-70deg);
+  transform-origin: 50% 100%;
+}
+
+.knob 
+{
+  background-color: #202020;
+  width: 16px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+.stick 
+{
+  width: 15px;
+  height: 120px;
+  background-color: #b3b1a9;
+  margin: 0 auto;
+}
+
+.lever-base 
+{
+  position: relative;
+  width: 51px;
+}
+
+.pivot 
+{
+  position: relative;
+  width: 80px;
+  height: 30px;
+  left: 10px;
+  border-radius: 50px 50px 0 0;
+  background-color: transparent;
+  margin: 0 auto;
+}

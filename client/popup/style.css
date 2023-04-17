@@ -1,5 +1,11 @@
 /* Google Font Import - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+:root
+{
+    --td-bg: #e2efda;
+    --th-bg: #649e3e;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -17,6 +23,25 @@ body
     display: none;
 }
 
+table
+{
+    border-spacing: 0;
+    background: var(--td-bg);
+}
+
+th
+{   
+    width: 100px;
+    background: var(--th-bg);
+}
+
+table, th, td 
+{
+    border: 1px solid black;
+    user-select: none;
+    text-align: center;
+}
+
 section .popup-outer{
     position: absolute;
     top: 0;
@@ -25,7 +50,7 @@ section .popup-outer{
     justify-content: center;
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.2);
     opacity: 0;
     pointer-events: none;
     box-shadow: 0 10px 15px rgba(0,0,0,0.1);
@@ -45,7 +70,7 @@ section .popup-box{
     max-width: 380px;
     width: 100%;
     background: #fff;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .popup-box .close{

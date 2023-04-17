@@ -10,35 +10,39 @@
 </head>
 <body>
     <section>
-        <div class="profile">
-            <div id="hireBtn" class="button">
-                <button>Hire me</button>
-            </div>
+        <div class="info">
+            <button><i class="fa-solid fa-question"></i></button>
         </div>
-
-        <div class="popup-outer none">
-            <div class="popup-box">
-                <i class="fa-solid fa-xmark close"></i>
-                
-                
-            </div>
-        </div>
-    </section>
+        
+    
 
 </body>
 
 <script src="https://kit.fontawesome.com/f359bbbf40.js" crossorigin="anonymous"></script>
 <script>
-const section = document.querySelector("section"),
-hireBtn = section.querySelector("#hireBtn")
+const section = document.querySelector("section")
+let isMouseOver = false
 
-hireBtn.addEventListener("click" , () =>{
+document.querySelector('.popup-box').addEventListener("mouseleave", () => {
+  isMouseOver = false
+}, false);
+
+document.querySelector('.popup-box').addEventListener("mouseover", () => {
+  isMouseOver = true
+}, false);
+
+document.querySelector('.openPopup').addEventListener("click" , () =>{
   section.classList.add("show")
 })
 
 document.querySelector('.close').addEventListener("click" , ()=>{
     section.classList.remove("show")
 })
+
+function del()
+{
+    if(!isMouseOver) section.classList.remove("show")
+}
 
 </script>
 </html>
