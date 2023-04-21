@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
 
 html,
 body {
@@ -29,13 +29,12 @@ body {
   height: 100vh;
 
   grid-template-rows: 1fr 8fr;
-  grid-template-areas: 
-  'topbar'
-  'main';
+  grid-template-areas:
+    "topbar"
+    "main";
 }
 
-.item-2
-{
+.item-2 {
   border-bottom: 1px solid var(--bordercolor);
 }
 
@@ -47,15 +46,13 @@ body {
   align-items: center;
 }
 
-.app img
-{
+.app img {
   position: absolute;
   width: 800px;
   pointer-events: none;
 }
 
-.app
-{
+.app {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -63,11 +60,10 @@ body {
   align-items: center;
   user-select: none;
   width: 650px;
-  height: 500px;
+  height: 370px;
 }
 
-.rowrow
-{
+.rowrow {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -75,15 +71,13 @@ body {
   height: 33%;
 }
 
-.jp
-{
-  font-family: 'Josefin Sans', sans-serif;
+.jp {
+  font-family: "Josefin Sans", sans-serif;
   font-size: 80px;
   color: rgb(128, 0, 0);
 }
 
-.doors
-{
+.doors {
   background: rgba(25, 31, 35, 1);
   height: 260px;
   width: 440px;
@@ -118,8 +112,7 @@ body {
   font-size: 3rem;
 }
 
-.lever-control 
-{
+.lever-control {
   position: relative;
   width: 54px;
   padding-top: 42px;
@@ -128,8 +121,7 @@ body {
   left: 100px;
 }
 
-.lever 
-{
+.lever {
   position: absolute;
   left: 40px;
   top: -35px;
@@ -137,32 +129,32 @@ body {
   transform-origin: 50% 100%;
 }
 
-.knob 
-{
+.knob {
   position: relative;
   top: 1px;
   background: linear-gradient(180deg, rgb(114, 22, 22) 0%, rgb(71, 4, 4) 100%);
   height: 40px;
   width: 20px;
-  border-radius: 5px 5px 2px 2px ;
+  border-radius: 5px 5px 2px 2px;
 }
 
-.stick 
-{
+.stick {
   width: 15px;
   height: 120px;
-  background: linear-gradient(180deg, rgba(114, 22, 22) 0%, rgba(173,0,0,1) 50%);
+  background: linear-gradient(
+    180deg,
+    rgba(114, 22, 22) 0%,
+    rgba(173, 0, 0, 1) 50%
+  );
   margin: 0 auto;
 }
 
-.lever-base 
-{
+.lever-base {
   position: relative;
   width: 51px;
 }
 
-.pivot
-{
+.pivot {
   position: relative;
   width: 80px;
   height: 30px;
@@ -178,8 +170,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.inf input
-{
+.inf input {
   font-family: "Asap", sans-serif;
   display: block;
   border-radius: 5px;
@@ -190,15 +181,93 @@ input::-webkit-inner-spin-button {
   padding: 10px 10px;
 }
 
-.inters
-{
+.inters {
   display: flex;
   flex-direction: column;
   row-gap: 40px;
 }
 
-.inf
-{
+/* popup */
+.info {
+  height: 70px;
+}
+
+.info button {
+  background: 0;
+  border: 0;
+  color: red;
+  font-size: 30px;
+}
+.none {
+  display: none;
+}
+
+table {
+  border-spacing: 0;
+  background: var(--td-bg);
+}
+
+th {
+  width: 100px;
+  background: var(--th-bg);
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  user-select: none;
+  text-align: center;
+}
+
+section .popup-outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+
+section.show .popup-outer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+section .popup-box {
+  position: relative;
+  padding: 30px;
+  max-width: 380px;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.popup-box .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  color: #b4b4b4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.popup-box .close:hover {
+  color: #333;
+}
+/* popup */
+
+.inf {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,22 +278,18 @@ input::-webkit-inner-spin-button {
   font-size: 18px;
   height: 100px;
   width: 50%;
-
 }
 
-.rowrow
-{
+.rowrow {
   display: flex;
   gap: 50px;
 }
 
-.currency::after
-{
+.currency::after {
   content: " Ft";
 }
 
-.inters > .rowrow > button
-{
+.inters > .rowrow > button {
   outline: none;
   border: 5px rgb(23, 67, 187) outset;
   background: rgb(166, 178, 207);
@@ -232,24 +297,21 @@ input::-webkit-inner-spin-button {
   height: 70px;
   width: 150px;
   font-size: 22px;
-  font-family: 'Asap', sans-serif;
+  font-family: "Asap", sans-serif;
   cursor: pointer;
 }
 
-.inters > .rowrow > button:nth-child(1)
-{
+.inters > .rowrow > button:nth-child(1) {
   border-color: rgb(152, 155, 12);
   background: rgb(215, 216, 177);
 }
 
-.inters > .rowrow > button:nth-child(2)
-{
+.inters > .rowrow > button:nth-child(2) {
   border-color: rgb(155, 12, 12);
   background: rgb(218, 189, 189);
 }
 
-.inters > .rowrow > button:active
-{
+.inters > .rowrow > button:active {
   border-style: inset;
   font-size: 21px;
 }
@@ -259,12 +321,10 @@ input.animation {
   box-shadow: 0 0 0.6rem rgba(155, 12, 12, 0.678);
 }
 
-span.animation 
-{
+span.animation {
   animation: shake 0.15s ease-in-out 0s 2;
   text-shadow: 0 0 0.6rem rgba(155, 12, 12, 0.678);
 }
-
 
 @keyframes shake {
   0% {

@@ -1,16 +1,17 @@
-:root
-{
+:root {
   --bgcolor: rgba(25, 31, 35, 1);
   --fontcolor: white;
   --dropdown-iconcolor: #9d9d9d;
-  --hovercolor: rgb(34, 41, 46);/*rgb(192,192,192);*/
-  --bordercolor: #42602f;/*rgb(105, 105, 105);*/
+  --hovercolor: rgb(34, 41, 46); /*rgb(192,192,192);*/
+  --bordercolor: #42602f; /*rgb(105, 105, 105);*/
+  /*popup*/
+  --td-bg: #e2efda;
+  --th-bg: #649e3e;
   /*bootstrap*/
   --bs-dropdown-link-active-bg: black;
 }
 
-.item-2
-{
+.item-2 {
   grid-area: topbar;
   display: flex;
   justify-content: flex-end;
@@ -18,8 +19,7 @@
   font-size: 10px;
 }
 
-.accountdetail
-{
+.accountdetail {
   height: 80px;
   display: flex;
   align-items: center;
@@ -27,14 +27,12 @@
   margin-left: 10px;
 }
 
-.accountdetail img
-{
+.accountdetail img {
   margin-top: 5px;
   height: 40px;
 }
 
-.accountdetail > div
-{
+.accountdetail > div {
   text-align: left;
   height: 80px;
   display: flex;
@@ -42,13 +40,11 @@
   flex-direction: column;
 }
 
-.accountdetail > div > span
-{
+.accountdetail > div > span {
   height: 20px;
 }
 
-.ddbtn
-{
+.ddbtn {
   position: relative;
   background: transparent;
   border: none;
@@ -58,25 +54,21 @@
   padding: 0;
 }
 
-.cont 
-{
+.cont {
   right: 40px;
 }
 
-.dropdown-divider
-{
+.dropdown-divider {
   border-top: 1px solid rgb(133, 133, 133);
 }
 
-.dropdown-item i
-{
+.dropdown-item i {
   width: 20px;
   color: var(--dropdown-iconcolor);
   text-align: center;
 }
 
-.dropdown-item
-{
+.dropdown-item {
   cursor: pointer;
   height: 35px;
   display: flex;
@@ -85,29 +77,24 @@
   padding: 0 10px;
 }
 
-.dropdown-item:active
-{
-  background-color: rgba(255, 255, 255, 0.20);
+.dropdown-item:active {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-button.ddbtn a 
-{
+button.ddbtn a {
   margin-left: 20px;
   color: var(--fontcolor);
 }
 
-.ddbtn i
-{
+.ddbtn i {
   color: var(--dropdown-iconcolor);
 }
 
-.ddbtn img 
-{
+.ddbtn img {
   height: 40px;
 }
 
-.dropdown-menu
-{
+.dropdown-menu {
   width: 250px;
   border: 1px solid rgb(85, 85, 85);
   user-select: none;

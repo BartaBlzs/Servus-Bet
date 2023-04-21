@@ -137,6 +137,17 @@ a:hover
   column-gap: 45%;
 }
 
+.userinfo > button
+{
+  width: 50px;
+  height: 38px;
+  right: 40px;
+  margin-top: 1px;
+  position: absolute;
+  background: 0;
+  border: 0;
+}
+
 .forgotpass > span
 {
   font-size: 16px;

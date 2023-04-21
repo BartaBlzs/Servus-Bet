@@ -28,6 +28,19 @@ document.querySelector('body').addEventListener('keypress', (e) =>
 	}
 })
 
+function revealPass()
+{
+	document.querySelector('.userinfo > :nth-child(4)').type = 'text'
+	document.querySelector('.fa-eye').classList.replace( 'fa-eye', 'fa-eye-slash')
+
+}
+
+function hidePass()
+{
+	document.querySelector('.userinfo > :nth-child(4)').type = 'password'
+	document.querySelector('.fa-eye-slash').classList.replace('fa-eye-slash', 'fa-eye')
+}
+
 function login()
 {
 	var username = document.querySelectorAll('.login > input')[0]
