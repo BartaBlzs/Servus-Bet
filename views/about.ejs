@@ -14,7 +14,7 @@
     function onbuttonclick() {
       const dataa = {};
 
-      fetch("http://localhost:3000/zdssa", {
+      fetch("/zdssa", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -24,7 +24,7 @@
         .then(data => (dataa = data));
     }
 
-    fetch("http://localhost:3000/zsa", {
+    fetch("/zsa", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

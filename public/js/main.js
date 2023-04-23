@@ -38,7 +38,11 @@ function revealPass()
 function hidePass()
 {
 	document.querySelector('.userinfo > :nth-child(4)').type = 'password'
-	document.querySelector('.fa-eye-slash').classList.replace('fa-eye-slash', 'fa-eye')
+	try
+	{
+		document.querySelector('.fa-eye-slash').classList.replace('fa-eye-slash', 'fa-eye')
+	}
+	catch{}
 }
 
 function login()
@@ -48,7 +52,7 @@ function login()
 	
 	if (username.reportValidity() && password.reportValidity())
 	{
-		fetch("http://localhost:3000/getxml",
+		fetch("/getxml",
 		{
 			method: "POST",
 			headers:
@@ -81,7 +85,7 @@ function signup()
 	{
 		setxml(username.value, email.value, password.value)
 		console.log(email.value)
-		fetch("http://localhost:3000/sendmail", 
+		fetch("/sendmail", 
 		{
 			method: "POST",
 			headers: {
@@ -139,7 +143,7 @@ function forgotPassword()
 
 	if (email.reportValidity())
 	{
-		fetch("http://localhost:3000/getxml",
+		fetch("/getxml",
 		{
 			method: "POST",
 			headers:
@@ -157,14 +161,14 @@ function forgotPassword()
 						code = document.createElement('code')
 						code.innerHTML = Math.floor(Math.random()*90000) + 10000
 						user.appendChild(code)
-						fetch("http://localhost:3000/setxml", {
+						fetch("/setxml", {
 							method: "POST",
 							headers: {
 								"Content-Type": "text/plain",
 							},
 							body: new XMLSerializer().serializeToString(xmlDocument)
 						})
-						fetch("http://localhost:3000/sendforgotmail",
+						fetch("/sendforgotmail",
 						{
 							method: "POST",
 							headers:
@@ -187,7 +191,7 @@ function forgotPasswordOK()
 	var code = document.querySelector('.codein > input')
 	if (code.reportValidity())
 	{
-		fetch("http://localhost:3000/getxml",
+		fetch("/getxml",
 		{
 			method: "POST",
 			headers:
@@ -203,7 +207,7 @@ function forgotPasswordOK()
 						if(code.value == user.children[4].innerHTML)
 						{
 							user.removeChild(user.children[4])
-							fetch("http://localhost:3000/setxml", {
+							fetch("/setxml", {
 								method: "POST",
 								headers: {
 									"Content-Type": "text/plain",

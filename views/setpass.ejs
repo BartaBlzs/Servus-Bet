@@ -39,7 +39,7 @@
     {
       if (us1.value == us2.value)
       {
-        fetch("http://localhost:3000/getxml",
+        fetch("/getxml",
         {
           method: "POST",
           headers:
@@ -53,7 +53,7 @@
               if (sessionStorage.getItem("email") == user.children[2].innerHTML)
               {
                 user.children[1].innerHTML = us1.value
-                fetch("http://localhost:3000/setxml", {
+                fetch("/setxml", {
                   method: "POST",
                   headers: {
                     "Content-Type": "text/plain",

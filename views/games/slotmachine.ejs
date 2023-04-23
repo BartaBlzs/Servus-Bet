@@ -37,10 +37,10 @@
                 <span></span>
               </div>
             </li>
-            <li><hr class="dropdown-divider" /></li>
+            <li><hr class="dropdown-divider"/></li>
             <li>
               <span class="dropdown-item"
-                ><i class="fa-solid fa-user"></i><a>Fiók</a></span
+                ><i class="fa-solid fa-right-from-bracket fa-rotate-180"></i><a onclick="logout()">Kijelentkezés</a></span
               >
             </li>
             <li>
@@ -222,36 +222,44 @@
   ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script>
+    function logout()
+    {
+      sessionStorage.setItem("username", "")
+      sessionStorage.setItem("currency", "")
+      sessionStorage.setItem("emailadress", "")
+      location.href = "/"
+    }
+
     /* popup */
-    const section = document.querySelector("section");
-    let isMouseOver = false;
+    const section = document.querySelector("section")
+    let isMouseOver = false
 
     document.querySelector(".popup-box").addEventListener(
       "mouseleave",
       () => {
-        isMouseOver = false;
+        isMouseOver = false
       },
       false
-    );
+    )
 
     document.querySelector(".popup-box").addEventListener(
       "mouseover",
       () => {
-        isMouseOver = true;
+        isMouseOver = true
       },
       false
-    );
+    )
 
     document.querySelector(".openPopup").addEventListener("click", () => {
-      section.classList.add("show");
-    });
+      section.classList.add("show")
+    })
 
     document.querySelector(".close").addEventListener("click", () => {
-      section.classList.remove("show");
-    });
+      section.classList.remove("show")
+    })
 
     function del() {
-      if (!isMouseOver) section.classList.remove("show");
+      if (!isMouseOver) section.classList.remove("show")
     }
     /* popup end */
 
@@ -261,19 +269,19 @@
     ) {
       document.querySelector(
         ".accountdetail"
-      ).children[1].children[0].innerHTML = sessionStorage.getItem("username");
+      ).children[1].children[0].innerHTML = sessionStorage.getItem("username")
       document.querySelector(
         ".accountdetail"
       ).children[1].children[1].innerHTML =
-        "@" + sessionStorage.getItem("emailadress").split("@")[0];
+        "@" + sessionStorage.getItem("emailadress").split("@")[0]
     } else {
       //location.href = "/"
     }
-    var currency = document.querySelector(".currency");
-    var bet = document.querySelector(".bet");
-    const doors = document.querySelectorAll(".door");
-    document.querySelector("#dropdownCurrency").innerHTML += 50000;
-    currency.innerHTML = 50000;
+    var currency = document.querySelector(".currency")
+    var bet = document.querySelector(".bet")
+    const doors = document.querySelectorAll(".door")
+    document.querySelector("#dropdownCurrency").innerHTML += 50000
+    currency.innerHTML = 50000
 
     function checkwin() {
       var dict = {
@@ -286,184 +294,184 @@
         "💰": 0,
         "🍣": 0,
         "❌": 0
-      };
+      }
 
       for (var door of doors) {
         for (var key in dict) {
           if (key == door.dataset.lastDisplayed) {
-            dict[key] = dict[key] + 1;
+            dict[key] = dict[key] + 1
           }
         }
       }
 
       var items = Object.keys(dict).map(function(key) {
-        return [key, dict[key]];
-      });
+        return [key, dict[key]]
+      })
 
       items.sort(function(a, b) {
-        return b[1] - a[1];
-      });
+        return b[1] - a[1]
+      })
 
-      console.log(items[0]);
+      console.log(items[0])
 
       if (items[0][1] == 2) {
         if (items[0][0] == "🗿")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 2;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 2
         else if (items[0][0] == "💸")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 1.5;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 1.5
         else if (items[0][0] == "📉")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.6;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.6
         else if (items[0][0] == "💩")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.3;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.3
         else if (items[0][0] == "👎")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.5;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.5
         else if (items[0][0] == "🍀")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 4;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 4
         else if (items[0][0] == "💰")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 2;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 2
         else if (items[0][0] == "🍣")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 1.2;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 1.2
         else if (items[0][0] == "❌")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.05;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.05
       }
 
       if (items[0][1] == 3) {
         if (items[0][0] == "🗿")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 5;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 5
         else if (items[0][0] == "💸")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 8;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 8
         else if (items[0][0] == "📉")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.2;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.2
         else if (items[0][0] == "💩")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.05;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.05
         else if (items[0][0] == "👎")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.3;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 0.3
         else if (items[0][0] == "🍀")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 10;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 10
         else if (items[0][0] == "💰")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 9;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 9
         else if (items[0][0] == "🍣")
-          currency.innerHTML = currency.innerHTML * 1 + bet.value * 2.5;
+          currency.innerHTML = currency.innerHTML * 1 + bet.value * 2.5
       }
     }
 
-    const leverControl = document.querySelector(".lever-control");
-    var animationRunning = false;
+    const leverControl = document.querySelector(".lever-control")
+    var animationRunning = false
 
-    const items = ["🗿", "💸", "📉", "💩", "👎", "🍀", "💰", "🍣", "❌"];
+    const items = ["🗿", "💸", "📉", "💩", "👎", "🍀", "💰", "🍣", "❌"]
 
     async function spin() {
-      init(1, 2);
+      init(1, 2)
       for (const door of doors) {
-        const boxes = door.querySelector(".boxes");
-        const duration = parseInt(boxes.style.transitionDuration);
-        boxes.style.transform = "translateY(0)";
-        await new Promise(resolve => setTimeout(resolve, duration * 100));
+        const boxes = door.querySelector(".boxes")
+        const duration = parseInt(boxes.style.transitionDuration)
+        boxes.style.transform = "translateY(0)"
+        await new Promise(resolve => setTimeout(resolve, duration * 100))
       }
     }
 
     function init(groups = 1, duration = 1) {
       for (const door of doors) {
-        const boxes = door.querySelector(".boxes");
-        const boxesClone = boxes.cloneNode(false);
+        const boxes = door.querySelector(".boxes")
+        const boxesClone = boxes.cloneNode(false)
 
-        const pool = [door.dataset.lastDisplayed];
+        const pool = [door.dataset.lastDisplayed]
 
-        const arr = [];
+        const arr = []
         for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
-          arr.push(...items);
+          arr.push(...items)
         }
-        pool.push(...shuffle(arr));
+        pool.push(...shuffle(arr))
         boxesClone.addEventListener("transitionstart", function() {
           this.querySelectorAll(".box").forEach(box => {
-            box.style.filter = "blur(1px)";
-          });
-        });
+            box.style.filter = "blur(1px)"
+          })
+        })
         boxesClone.addEventListener("transitionend", function() {
           this.querySelectorAll(".box").forEach((box, index) => {
-            box.style.filter = "blur(0)";
-            if (index > 0) this.removeChild(box);
-          });
-          door.dataset.lastDisplayed = door.querySelector(".box").innerHTML;
-        });
+            box.style.filter = "blur(0)"
+            if (index > 0) this.removeChild(box)
+          })
+          door.dataset.lastDisplayed = door.querySelector(".box").innerHTML
+        })
         for (let i = pool.length - 1; i >= 0; i--) {
-          const box = document.createElement("div");
-          box.classList.add("box");
-          box.style.width = door.clientWidth + "px";
-          box.style.height = door.clientHeight + "px";
-          box.textContent = pool[i];
-          boxesClone.appendChild(box);
+          const box = document.createElement("div")
+          box.classList.add("box")
+          box.style.width = door.clientWidth + "px"
+          box.style.height = door.clientHeight + "px"
+          box.textContent = pool[i]
+          boxesClone.appendChild(box)
         }
-        boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
+        boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`
         boxesClone.style.transform = `translateY(-${door.clientHeight *
-          (pool.length - 1)}px)`;
-        door.replaceChild(boxesClone, boxes);
+          (pool.length - 1)}px)`
+        door.replaceChild(boxesClone, boxes)
       }
     }
 
     function shuffle([...arr]) {
-      let m = arr.length;
+      let m = arr.length
       while (m) {
         const i = Math.floor(Math.random() * m--);
-        [arr[m], arr[i]] = [arr[i], arr[m]];
+        [arr[m], arr[i]] = [arr[i], arr[m]]
       }
-      return arr;
+      return arr
     }
-    init();
+    init()
 
     document.querySelector(".onebet").addEventListener("click", () => {
       if (bet.value * 1 <= 19000) {
-        bet.value = bet.value * 1 + 1000;
+        bet.value = bet.value * 1 + 1000
       }
-    });
+    })
 
     document.querySelector(".maxbet").addEventListener("click", () => {
-      if (currency.innerHTML * 1 < 20000) bet.value = currency.innerHTML;
-      else bet.value = 20000;
-    });
+      if (currency.innerHTML * 1 < 20000) bet.value = currency.innerHTML
+      else bet.value = 20000
+    })
 
     function themeChange(btn) {
-      var r = document.querySelector(":root");
+      var r = document.querySelector(":root")
       // change where the check icon is
-      document.querySelector(".fa-check").remove();
-      var i = document.createElement("i");
-      i.classList.add("fa-solid");
-      i.classList.add("fa-check");
-      btn.appendChild(i);
+      document.querySelector(".fa-check").remove()
+      var i = document.createElement("i")
+      i.classList.add("fa-solid")
+      i.classList.add("fa-check")
+      btn.appendChild(i)
 
       if (btn.children[1].innerHTML == "Világos") {
-        light();
+        light()
       } else if (btn.children[1].innerHTML == "Sötét") {
-        dark();
+        dark()
       } else {
         if (
           window.matchMedia &&
           window.matchMedia("(prefers-color-scheme: dark)").matches
         ) {
-          dark();
+          dark()
         } else if (window.matchMedia) {
-          light();
+          light()
         }
       }
 
       function dark() {
-        r.style.setProperty("--bgcolor", "rgba(25, 31, 35, 1)");
-        r.style.setProperty("--fontcolor", "white");
-        r.style.setProperty("--dropdown-iconcolor", "#9d9d9d");
-        r.style.setProperty("--hovercolor", "rgb(34, 41, 46)");
+        r.style.setProperty("--bgcolor", "rgba(25, 31, 35, 1)")
+        r.style.setProperty("--fontcolor", "white")
+        r.style.setProperty("--dropdown-iconcolor", "#9d9d9d")
+        r.style.setProperty("--hovercolor", "rgb(34, 41, 46)")
         document
           .querySelectorAll(".dropdown-menu")
-          .forEach(e => e.classList.add("dropdown-menu-dark"));
+          .forEach(e => e.classList.add("dropdown-menu-dark"))
       }
 
       function light() {
-        r.style.setProperty("--bgcolor", "rgb(211, 211, 211)");
-        r.style.setProperty("--fontcolor", "black");
-        r.style.setProperty("--dropdown-iconcolor", "#5f5f5f");
-        r.style.setProperty("--hovercolor", "rgb(192, 192, 192)");
+        r.style.setProperty("--bgcolor", "rgb(211, 211, 211)")
+        r.style.setProperty("--fontcolor", "black")
+        r.style.setProperty("--dropdown-iconcolor", "#5f5f5f")
+        r.style.setProperty("--hovercolor", "rgb(192, 192, 192)")
         document
           .querySelectorAll(".dropdown-menu")
-          .forEach(e => e.classList.remove("dropdown-menu-dark"));
+          .forEach(e => e.classList.remove("dropdown-menu-dark"))
       }
     }
 
@@ -474,9 +482,9 @@
         bet.value <= 20000
       ) {
         if (!animationRunning) {
-          currency.innerHTML = currency.innerHTML * 1 - bet.value;
-          animationRunning = true;
-          spin();
+          currency.innerHTML = currency.innerHTML * 1 - bet.value
+          animationRunning = true
+          spin()
           gsap.fromTo(
             ".lever",
             { rotate: -70 },
@@ -486,7 +494,7 @@
               repeat: 0,
               ease: "Sine.out"
             }
-          );
+          )
           setTimeout(() => {
             gsap.fromTo(
               ".lever",
@@ -499,26 +507,26 @@
                 repeat: 0,
                 ease: "Sine.out"
               }
-            );
-          }, 1200);
+            )
+          }, 1200)
           setTimeout(() => {
-            checkwin();
-            animationRunning = false;
-          }, 2500);
+            checkwin()
+            animationRunning = false
+          }, 2500)
         }
       } else if (bet.value <= 1000 || bet.value >= 20000) {
-        shake(bet);
+        shake(bet)
       } else if (!animationRunning) {
-        shake(currency);
+        shake(currency)
       }
-    });
+    })
 
     function shake(element) {
       if (!element.classList.contains("animation")) {
-        element.classList.add("animation");
+        element.classList.add("animation")
         setTimeout(() => {
-          element.classList.remove("animation");
-        }, 400);
+          element.classList.remove("animation")
+        }, 400)
       }
     }
   </script>

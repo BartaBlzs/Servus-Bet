@@ -22,32 +22,67 @@
       
 
       <div class="btn-group">
-        <button class="ddbtn cont" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-          <img src="/img/userAvatar.png" alt="">
+        <button
+          class="ddbtn cont"
+          type="button"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="outside"
+          aria-expanded="false"
+        >
+          <img src="/img/userAvatar.png" alt="" />
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
           <li class="accountdetail">
-            <img src="/img/userAvatar.png" alt="">
+            <img src="/img/userAvatar.png" alt="" />
             <div>
               <span></span>
               <span></span>
             </div>
           </li>
-          <li><hr class="dropdown-divider"></li>
-          <li><span class="dropdown-item"><i class="fa-solid fa-user"></i><a>Fiók</a></span></li>
+          <li><hr class="dropdown-divider"/></li>
+          <li>
+            <span class="dropdown-item"
+              ><i class="fa-solid fa-right-from-bracket fa-rotate-180"></i><a onclick="logout()">Kijelentkezés</a></span
+            >
+          </li>
           <li>
             <div class="dropstart dropdown-item">
-              <button class="ddbtn" type="button" data-bs-toggle="dropdown" data-bs-offset="0, 9" aria-expanded="false">
-                <i class="fa-solid fa-cloud-moon"></i><a style="color: var(--bs-dropdown-link-color)">Téma</a>
+              <button
+                class="ddbtn"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-offset="0, 9"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-cloud-moon"></i
+                ><a style="color: var(--bs-dropdown-link-color)">Téma</a>
               </button>
               <ul class="dropdown-menu dropdown-menu-dark">
-                <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-cloud-moon"></i><a>Sötét</a><i class="fa-solid fa-check"></i></span></li>
-                <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-sun"></i><a>Világos</a></span></li>
-                <li><span class="dropdown-item" onclick="themeChange(this)"><i class="fa-solid fa-gears"></i><a>Auto</a></span></li>
+                <li>
+                  <span class="dropdown-item" onclick="themeChange(this)"
+                    ><i class="fa-solid fa-cloud-moon"></i><a>Sötét</a
+                    ><i class="fa-solid fa-check"></i
+                  ></span>
+                </li>
+                <li>
+                  <span class="dropdown-item" onclick="themeChange(this)"
+                    ><i class="fa-solid fa-sun"></i><a>Világos</a></span
+                  >
+                </li>
+                <li>
+                  <span class="dropdown-item" onclick="themeChange(this)"
+                    ><i class="fa-solid fa-gears"></i><a>Auto</a></span
+                  >
+                </li>
               </ul>
             </div>
-        </li>
-          <li><span class="dropdown-item"><a>Sötét</a></span></li>
+          </li>
+          <li>
+            <span class="dropdown-item"
+              ><i class="fa-solid fa-dollar-sign"></i
+              ><a id="dropdownCurrency">Egyenleg: </a></span
+            >
+          </li>
         </ul>
       </div>
   </div>
@@ -188,6 +223,8 @@
 function logout()
 {
   sessionStorage.setItem("username", "")
+  sessionStorage.setItem("currency", "")
+  sessionStorage.setItem("emailadress", "")
   location.href = "/"
 }
 
@@ -200,8 +237,9 @@ window.onload = () =>
   }
   else
   {
-    //location.href = "/"
+    location.href = "/"
   }
+  var currency = document.querySelector(".currency")
   setTimeout(() => {
     document.querySelector('.under18').style.opacity = '0'
     setTimeout(() => {
