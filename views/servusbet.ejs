@@ -239,7 +239,9 @@ window.onload = () =>
   {
     location.href = "/"
   }
-  var currency = document.querySelector(".currency")
+  
+  document.querySelector("#dropdownCurrency").innerHTML = sessionStorage.getItem("currency")
+  
   setTimeout(() => {
     document.querySelector('.under18').style.opacity = '0'
     setTimeout(() => {
