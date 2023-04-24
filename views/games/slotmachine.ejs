@@ -280,7 +280,8 @@
     var currency = document.querySelector(".currency")
     var bet = document.querySelector(".bet")
     const doors = document.querySelectorAll(".door")
-    document.querySelector("#dropdownCurrency").innerHTML = currency.innerHTML = sessionStorage.getItem("currency")
+    document.querySelector("#dropdownCurrency").innerHTML += 50000
+    currency.innerHTML = 50000
 
     function checkwin() {
       var dict = {
@@ -352,32 +353,7 @@
         else if (items[0][0] == "🍣")
           currency.innerHTML = currency.innerHTML * 1 + bet.value * 2.5
       }
-
-      sessionStorage.setItem("currency", currency.innerHTML)
-      fetch("http://localhost:3000/getxml", {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/plain",
-      }
-      }).then(response => response.text())
-          .then(data => {
-          const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
-          
-          xmlDocument.querySelectorAll('user').forEach((user) => {
-            if (user.querySelector('username').innerHTML == sessionStorage.getItem("username"))
-            {
-              user.querySelector('currency').innerHTML = sessionStorage.getItem("currency")
-              fetch("http://localhost:3000/setxml", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "text/plain",
-                },
-                body: new XMLSerializer().serializeToString(xmlDocument)
-              })
-            }
-          })
-        });
-      }
+    }
 
     const leverControl = document.querySelector(".lever-control")
     var animationRunning = false

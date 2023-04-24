@@ -1,0 +1,93 @@
+
+body{
+    background-image: url(background.jpg);
+  }
+  #app {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .n{
+    height: 75px;
+    width: 50px;
+  
+  }
+  .marker {
+    position: absolute;
+    width: 60px;
+    left: 172px;
+    top: -20px;
+    z-index: 2;
+  }
+  
+  .wheel {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .button {
+    display: block;
+    width: 250px;
+    margin: 10px auto;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    opacity: 0.8;
+  }
+  
+  .blur {
+    animation: blur 10s;
+  }
+  .rainbow{
+    animation: coolor 10s;
+  }
+  
+  
+  .black{
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    color:white;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .red{
+    background-color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    color:white;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .green{
+    background-color: green;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    color:white;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  
+  @keyframes blur {
+    0% {
+      filter: blur(0.5px);
+    }
+    50%{
+      filter: blur(2px);
+    }
+    80% {
+      filter: blur(1.5px);
+    }
+    95% {
+      filter: blur(0px);
+      
+    }
+  
+  
+  }
+  
+  
