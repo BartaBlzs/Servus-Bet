@@ -10,11 +10,108 @@
 </head>
 <body>
     <h1>Válaszd ki a feltöltési csomagodat!</h1>
+    <h2>Kezdő csomagok</h2>
     <div class="flex">
         <div>
-            <span>A kezdés</span>
-            <span>10000</span>
+            <span>Kezdés</span>
+            <span>10 000</span>
+        </div>
+        <div>
+            <span>Kezdés+</span>
+            <span>20 000</span>
+        </div>
+        <div>
+            <span>Haladó</span>
+            <span>35 000</span>
+        </div>
+        <div>
+            <span>Feltőltő</span>
+            <span>50 000</span>
+        </div>
+        <div>
+            <span>Nem semmi</span>
+            <span>70 000</span>
         </div>
     </div>
+
+    <h2>Profi csomagok</h2>
+
+    <div class="flex">
+        <div>
+            <span>Több mint hobbi</span>
+            <span>100 000</span>
+        </div>
+        <div>
+            <span>Fekete Jani</span>
+            <span>200 000</span>
+        </div>
+        <div>
+            <span>Zöldre mindet</span>
+            <span>500 000</span>
+        </div>
+        <div>
+            <span>Függő</span>
+            <span>2 000 000</span>
+        </div>
+        <div>
+            <span>Jól vagy?</span>
+            <span>5 000 000</span>
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="addCurrency()">Feltöltés</button>
+    </div>
 </body>
+<script>
+    document.querySelectorAll(".flex > div").forEach(element => 
+    {
+        
+        element.addEventListener('click', () =>
+        {
+            document.querySelectorAll(".flex > div").forEach(e => e.classList.remove('selected'))
+            element.classList.add('selected')
+        })
+    })
+    function addCurrency()
+    {
+        bool = true
+        try
+        {
+            document.querySelector('.selected').classList.item(0)
+        }
+        catch
+        {
+            bool = false
+        }
+
+        if (bool)
+        {
+            fetch("http://localhost:3000/getxml", {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain",
+            }
+            }).then(response => response.text())
+            .then(data => {
+                const xmlDocument = new DOMParser().parseFromString(data, "text/xml")
+                xmlDocument.querySelectorAll('user').forEach(user => 
+                {
+                    if (user.querySelector('username').innerHTML == sessionStorage.getItem('username'))
+                    {
+                        user.querySelector('currency').innerHTML = sessionStorage.getItem("currency")*1 + document.querySelector('.selected > span:nth-child(2)').innerHTML.replaceAll(' ','')*1
+                        sessionStorage.setItem("currency", user.querySelector('currency').innerHTML)
+                        fetch("http://localhost:3000/setxml", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "text/plain",
+                            },
+                            body: new XMLSerializer().serializeToString(xmlDocument)
+                        }).then(location.href = "/")
+                    }
+                })
+            });
+        }
+
+    }
+</script>
 </html>

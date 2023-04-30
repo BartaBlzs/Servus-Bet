@@ -1,3 +1,8 @@
+if (sessionStorage.getItem("username") != "" && sessionStorage.getItem("username") != null)
+{
+	location.href = "/servusbet"
+}
+
 function loginSignupToggle()
 {
 	if (getComputedStyle(document.querySelector('.login')).display == 'block')

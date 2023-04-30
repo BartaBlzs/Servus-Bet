@@ -78,7 +78,7 @@
             <li>
               <span class="dropdown-item"
                 ><i class="fa-solid fa-dollar-sign"></i
-                ><a id="dropdownCurrency">Egyenleg: </a></span
+                ><a id="dropdownCurrency" onclick="location.href = '/currencyUpload'">Egyenleg: </a></span
               >
             </li>
           </ul>
@@ -275,7 +275,7 @@
       ).children[1].children[1].innerHTML =
         "@" + sessionStorage.getItem("emailadress").split("@")[0]
     } else {
-      //location.href = "/"
+      location.href = "/"
     }
     var currency = document.querySelector(".currency")
     var bet = document.querySelector(".bet")
@@ -354,6 +354,7 @@
       }
 
       sessionStorage.setItem("currency", currency.innerHTML)
+      document.querySelector("#dropdownCurrency").innerHTML = currency.innerHTML = currency.innerHTML
       fetch("http://localhost:3000/getxml", {
       method: "POST",
       headers: {

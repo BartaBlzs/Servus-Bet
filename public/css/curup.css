@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 html,
 body {
   width: 100vw;
@@ -18,12 +26,19 @@ h1
     text-align: center;
 }
 
+h2
+{
+    margin-top: 50px;
+    text-align: center;
+}
+
 .flex
 {
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
+    gap: 30px;
 }
 
 .flex > div
@@ -33,14 +48,47 @@ h1
     align-items: center;
     flex-direction: column;
     background: whitesmoke;
-    border: 3px solid whitesmoke;
     gap: 5px;
     border-radius: 7px;
-    width: 180px;
-    height: 70px;
+    width: 200px;
+    height: 80px;
 }
 
 .flex > div > span
 {
     font-size: large;
+}
+
+.flex > div > span:nth-child(2)::after
+{
+    content: " Ft";
+}
+
+.selected
+{
+    border: 2px rgb(68, 198, 207) solid;
+}
+
+.btn
+{
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button
+{
+    height: 70px;
+    width: 300px;
+    font-size: 30px;
+    background: rgb(32, 118, 124);
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+}
+
+button:hover
+{
+    background: rgb(24, 89, 94);
 }
