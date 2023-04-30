@@ -94,12 +94,22 @@
           <div class="popup-box">
             <i class="fa-solid fa-xmark close"></i>
             <img class="cursortrack" src="/img/roulette/roulette-betting-table.png" alt="">
-            <input type="number">
+            <input type="number" onkeydown="return event.keyCode !== 69 && event.keyCode !== 190">
+            <div>
+              <img src="/img/roulette/casinochip.png" alt="">
+              <span></span>
+            </div>
+            
             <button class="button">Pörgetés</button>
           </div>
         </div>
         
       </section>
+
+      <!--<div class="chip">
+        <img src="/img/roulette/casinochip.png" alt="">
+        <span></span>
+      </div>-->
     </div>
     
   </div>
@@ -126,219 +136,252 @@
       },
       false
     )
-
+    
+    
+    document.querySelector('input').addEventListener('keydown', (e) =>
+    {
+      if(!isNaN(e.key))
+      {
+        document.querySelector('.popup-box').querySelector('div').children[1].innerHTML = document.querySelector('input').value+e.key
+      }
+      else if (e.key == "Backspace") document.querySelector('.popup-box').querySelector('div').children[1].innerHTML = document.querySelector('input').value.substring(0, document.querySelector('input').value.length-1)
+      
+    })
+    
     var dict = {};
     document.querySelector('.cursortrack').addEventListener("click", event => {
-      console.log(event.clientX)
-      /*if (event.clientY > 200 && event.clientY < 286)
-      {
-        if (event.clientX > 382 && event.clientX < 445)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 446 && event.clientX < 507)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 508 && event.clientX < 570)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 570 && event.clientX < 633)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 633 && event.clientX < 697)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 697 && event.clientX < 759)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 759 && event.clientX < 822)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 822 && event.clientX < 885)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 885 && event.clientX < 949)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 949 && event.clientX < 1011)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1011 && event.clientX < 1074)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1074 && event.clientX < 1137)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1137 && event.clientX < 1202)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-      }
-      else if (event.clientY > 287 && event.clientY < 372)
-      {
-        if (event.clientX > 382 && event.clientX < 445)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 446 && event.clientX < 507)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 508 && event.clientX < 570)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 570 && event.clientX < 633)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 633 && event.clientX < 697)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 697 && event.clientX < 759)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 759 && event.clientX < 822)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 822 && event.clientX < 885)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 885 && event.clientX < 949)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 949 && event.clientX < 1011)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1011 && event.clientX < 1074)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1074 && event.clientX < 1137)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1137 && event.clientX < 1202)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-      }
-      else if (event.clientY > 373 && event.clientY < 455)
-      {
-        if (event.clientX > 382 && event.clientX < 445)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 446 && event.clientX < 507)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 508 && event.clientX < 570)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 570 && event.clientX < 633)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 633 && event.clientX < 697)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 697 && event.clientX < 759)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 759 && event.clientX < 822)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 822 && event.clientX < 885)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 885 && event.clientX < 949)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 949 && event.clientX < 1011)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1011 && event.clientX < 1074)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1074 && event.clientX < 1137)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1137 && event.clientX < 1202)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-      }
-      else if (event.clientY > 456 && event.clientY < 532)
-      {
-        if (event.clientX > 382 && event.clientX < 634)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 634 && event.clientX < 885)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 885 && event.clientX < 1139)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-      }
-      else if (event.clientY > 533 && event.clientY < 600)
-      {
-        if (event.clientX > 382 && event.clientX < 508)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 508 && event.clientX < 634)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 634 && event.clientX < 759)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 759 && event.clientX < 886)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 885 && event.clientX < 1009)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        if (event.clientX > 1009 && event.clientX < 1139)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-      }
       
-      */
+      /*var div = document.createElement('div')
+      div.classList.add('chip')
+      var img = document.createElement('img')
+      img.src = "/img/roulette/casinochip.png"
+      div.appendChild(img)
+      var span = createElement('span')
+      div.appendChild(span)
+
+      if (event.clientY > 200 && event.clientY < 286)
+      {
+        if (cursorX > 382 && cursorX < 445)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        
+        /*<div class="chip">
+        <img src="/img/roulette/casinochip.png" alt="">
+        <span></span>
+      </div>
+      }*/
+      var cursorX = event.clientX-(window.innerWidth-document.querySelector('.popup-box > img').clientWidth)/2+258
+      var cursorY = event.clientY-(window.innerHeight-document.querySelector('.popup-box > img').clientHeight)/2
+      
+      if (cursorY > -60 && cursorY < 26)
+      {
+        if (cursorX > 382 && cursorX < 445)
+        {
+          dict["3 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 446 && cursorX < 507)
+        {
+          dict["6 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 508 && cursorX < 570)
+        {
+          dict["9 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 570 && cursorX < 633)
+        {
+          dict["12 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 633 && cursorX < 697)
+        {
+          dict["15 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 697 && cursorX < 759)
+        {
+          dict["18 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 759 && cursorX < 822)
+        {
+          dict["21 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 822 && cursorX < 885)
+        {
+          dict["24 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 885 && cursorX < 949)
+        {
+          dict["27 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 949 && cursorX < 1011)
+        {
+          dict["30 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1011 && cursorX < 1074)
+        {
+          dict["33 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1074 && cursorX < 1137)
+        {
+          dict["36 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1137 && cursorX < 1202)
+        {
+          dict["2 to 1"] = document.querySelector('input').innerHTML
+        }
+      }
+      else if (cursorY > 26 && cursorY < 110)
+      {
+        if (cursorX > 382 && cursorX < 445)
+        {
+          dict["2 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 446 && cursorX < 507)
+        {
+          dict["5 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 508 && cursorX < 570)
+        {
+          dict["8 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 570 && cursorX < 633)
+        {
+          dict["11 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 633 && cursorX < 697)
+        {
+          dict["14 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 697 && cursorX < 759)
+        {
+          dict["17 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 759 && cursorX < 822)
+        {
+          dict["20 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 822 && cursorX < 885)
+        {
+          dict["23 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 885 && cursorX < 949)
+        {
+          dict["26 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 949 && cursorX < 1011)
+        {
+          dict["29 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1011 && cursorX < 1074)
+        {
+          dict["32 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1074 && cursorX < 1137)
+        {
+          dict["35 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1137 && cursorX < 1202)
+        {
+          dict["2 to 1"] = document.querySelector('input').innerHTML
+        }
+      }
+      else if (cursorY > 110 && cursorY < 195)
+      {
+        if (cursorX > 382 && cursorX < 445)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 446 && cursorX < 507)
+        {
+          dict["4 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 508 && cursorX < 570)
+        {
+          dict["7 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 570 && cursorX < 633)
+        {
+          dict["10 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 633 && cursorX < 697)
+        {
+          dict["13 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 697 && cursorX < 759)
+        {
+          dict["16 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 759 && cursorX < 822)
+        {
+          dict["19 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 822 && cursorX < 885)
+        {
+          dict["22 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 885 && cursorX < 949)
+        {
+          dict["25 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 949 && cursorX < 1011)
+        {
+          dict["28 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1011 && cursorX < 1074)
+        {
+          dict["31 BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1074 && cursorX < 1137)
+        {
+          dict["34 RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1137 && cursorX < 1202)
+        {
+          dict["2 to 1"] = document.querySelector('input').innerHTML
+        }
+      }
+      else if (cursorY > 195 && cursorY < 271)
+      {
+        if (cursorX > 382 && cursorX < 634)
+        {
+          dict["1st 12"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 634 && cursorX < 885)
+        {
+          dict["2nd 12"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 885 && cursorX < 1139)
+        {
+          dict["3rd 12"] = document.querySelector('input').innerHTML
+        }
+      }
+      else if (cursorY > 271 && cursorY < 335)
+      {
+        if (cursorX > 382 && cursorX < 508)
+        {
+          dict["1 to 18"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 508 && cursorX < 634)
+        {
+          dict["EVEN"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 634 && cursorX < 759)
+        {
+          dict["RED"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 759 && cursorX < 886)
+        {
+          dict["BLACK"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 885 && cursorX < 1009)
+        {
+          dict["ODD"] = document.querySelector('input').innerHTML
+        }
+        if (cursorX > 1009 && cursorX < 1139)
+        {
+          dict["19 to 36"] = document.querySelector('input').innerHTML
+        }
+      }
+      console.log(Object.keys(dict).pop())
     })
 
     document.querySelector(".popup-box").addEventListener(

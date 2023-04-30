@@ -81,11 +81,6 @@ body {
   color: whitesmoke;
 }
 
-.button
-{
-  margin: 40px auto;
-}
-
 .blur {
   animation: blur 10s;
 }
@@ -109,10 +104,10 @@ input {
   width: 300px;
   border: none;
   padding: 10px 10px;
-  margin: 20px auto;
+  margin: 30px;
 }
 
-.black{
+.black {
   background-color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 50px;
@@ -120,7 +115,8 @@ input {
   text-align: center;
   border-radius: 5px;
 }
-.red{
+
+.red {
   background-color: red;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 50px;
@@ -128,7 +124,8 @@ input {
   text-align: center;
   border-radius: 5px;
 }
-.green{
+
+.green {
   background-color: green;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 50px;
@@ -167,8 +164,12 @@ section.show .popup-outer {
 
 section .popup-box {
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 30px;
-  width: 70%;
+  width: 60%;
   height: 600px;
   background: rgb(206, 202, 202);
   border-radius: 8px;
@@ -191,6 +192,35 @@ section .popup-box {
 .popup-box > img 
 {
   border-radius: 20px;
+  height: 100%;
+}
+
+.popup-box > div,
+.chip
+{
+  position: absolute;
+  width: 170px;
+  user-select: none;
+  top: 440px;
+  left: 75%;
+}
+
+.popup-box > div > img,
+.chip > img
+{
+  width: inherit;
+}
+
+.popup-box > div > span,
+.chip > span
+{
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  top: 42%;
+  left: 18%;
+  font-size: large;
+  color: whitesmoke;
 }
 
 @keyframes blur {
