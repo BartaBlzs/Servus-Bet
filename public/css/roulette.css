@@ -1,93 +1,209 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: var(--bgcolor);
+  font-family: "Asap", sans-serif;
+  overflow: hidden;
+}
 
-body{
-    background-image: url(background.jpg);
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.gridcont {
+  display: grid;
+  height: 100vh;
+
+  grid-template-rows: 1fr 8fr;
+  grid-template-areas:
+    "topbar"
+    "main";
+}
+
+.item-2 {
+  border-bottom: 1px solid var(--bordercolor);
+}
+
+.appcont
+{
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  
+  width: 600px;
+  height: 600px;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.n{
+  height: 75px;
+  width: 50px;
+}
+
+.marker {
+  position: relative;
+  top: 50px;
+  width: 60px;
+  z-index: 2;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+}
+
+.button, .opn {
+  display: block;
+  width: 300px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  font-size: large;
+  background: #918989;
+  color: whitesmoke;
+}
+
+.button
+{
+  margin: 40px auto;
+}
+
+.blur {
+  animation: blur 10s;
+}
+
+.rainbow{
+  animation: coolor 10s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 300px;
+  border: none;
+  padding: 10px 10px;
+  margin: 20px auto;
+}
+
+.black{
+  background-color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  color:white;
+  text-align: center;
+  border-radius: 5px;
+}
+.red{
+  background-color: red;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  color:white;
+  text-align: center;
+  border-radius: 5px;
+}
+.green{
+  background-color: green;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  color:white;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.none {
+  display: none;
+}
+
+section .popup-outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+  z-index: 3;
+}
+
+section.show .popup-outer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+section .popup-box {
+  position: relative;
+  padding: 30px;
+  width: 70%;
+  height: 600px;
+  background: rgb(206, 202, 202);
+  border-radius: 8px;
+}
+
+.popup-box .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  color: #b4b4b4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.popup-box .close:hover {
+  color: #333;
+}
+
+.popup-box > img 
+{
+  border-radius: 20px;
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(0.5px);
   }
-  #app {
-    width: 400px;
-    height: 400px;
-    margin: 0 auto;
-    position: relative;
+  50%{
+    filter: blur(2px);
   }
-  
-  .n{
-    height: 75px;
-    width: 50px;
-  
+  80% {
+    filter: blur(1.5px);
   }
-  .marker {
-    position: absolute;
-    width: 60px;
-    left: 172px;
-    top: -20px;
-    z-index: 2;
+  95% {
+    filter: blur(0px);
   }
-  
-  .wheel {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .button {
-    display: block;
-    width: 250px;
-    margin: 10px auto;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    opacity: 0.8;
-  }
-  
-  .blur {
-    animation: blur 10s;
-  }
-  .rainbow{
-    animation: coolor 10s;
-  }
-  
-  
-  .black{
-    background-color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
-    color:white;
-    text-align: center;
-    border-radius: 5px;
-  }
-  .red{
-    background-color: red;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
-    color:white;
-    text-align: center;
-    border-radius: 5px;
-  }
-  .green{
-    background-color: green;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
-    color:white;
-    text-align: center;
-    border-radius: 5px;
-  }
-  
-  
-  @keyframes blur {
-    0% {
-      filter: blur(0.5px);
-    }
-    50%{
-      filter: blur(2px);
-    }
-    80% {
-      filter: blur(1.5px);
-    }
-    95% {
-      filter: blur(0px);
-      
-    }
-  
-  
-  }
-  
-  
+}

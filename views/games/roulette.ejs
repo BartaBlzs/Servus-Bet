@@ -1,368 +1,652 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="/css/roulette.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
     <link rel="stylesheet" href="/css/cut.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/roulette.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <title>Roulette</title>
 </head>
 <body class="back">
-    <div class="gridcont">
-        <div class="item item-2"> 
-          <!-- Bootstrap -->
-          <div class="btn-group">
-            <button
-              class="ddbtn cont"
-              type="button"
-              data-bs-toggle="dropdown"
-              data-bs-auto-close="outside"
-              aria-expanded="false"
+  <div class="gridcont">
+    <div class="item item-2">
+      <!-- Bootstrap -->
+      <div class="btn-group">
+        <button
+          class="ddbtn cont"
+          type="button"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="outside"
+          aria-expanded="false"
+        >
+          <img src="/img/userAvatar.png" alt="" />
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li class="accountdetail">
+            <img src="/img/userAvatar.png" alt="" />
+            <div>
+              <span></span>
+              <span></span>
+            </div>
+          </li>
+          <li><hr class="dropdown-divider"/></li>
+          <li>
+            <span class="dropdown-item"
+              ><i class="fa-solid fa-right-from-bracket fa-rotate-180"></i><a onclick="logout()">Kijelentkezés</a></span
             >
-              <img src="/img/userAvatar.png" alt="" />
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li class="accountdetail">
-                <img src="/img/userAvatar.png" alt="" />
-                <div>
-                  <span></span>
-                  <span></span>
-                </div>
-              </li>
-              <li><hr class="dropdown-divider"/></li>
-              <li>
-                <span class="dropdown-item"
-                  ><i class="fa-solid fa-right-from-bracket fa-rotate-180"></i><a onclick="logout()">Kijelentkezés</a></span
-                >
-              </li>
-              <li>
-                <div class="dropstart dropdown-item">
-                  <button
-                    class="ddbtn"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    data-bs-offset="0, 9"
-                    aria-expanded="false"
+          </li>
+          <li>
+            <div class="dropstart dropdown-item">
+              <button
+                class="ddbtn"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-offset="0, 9"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-cloud-moon"></i
+                ><a style="color: var(--bs-dropdown-link-color)">Téma</a>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <span class="dropdown-item" onclick="themeChange(this)"
+                    ><i class="fa-solid fa-cloud-moon"></i><a>Sötét</a
+                    ><i class="fa-solid fa-check"></i
+                  ></span>
+                </li>
+                <li>
+                  <span class="dropdown-item" onclick="themeChange(this)"
+                    ><i class="fa-solid fa-sun"></i><a>Világos</a></span
                   >
-                    <i class="fa-solid fa-cloud-moon"></i
-                    ><a style="color: var(--bs-dropdown-link-color)">Téma</a>
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li>
-                      <span class="dropdown-item" onclick="themeChange(this)"
-                        ><i class="fa-solid fa-cloud-moon"></i><a>Sötét</a
-                        ><i class="fa-solid fa-check"></i
-                      ></span>
-                    </li>
-                    <li>
-                      <span class="dropdown-item" onclick="themeChange(this)"
-                        ><i class="fa-solid fa-sun"></i><a>Világos</a></span
-                      >
-                    </li>
-                    <li>
-                      <span class="dropdown-item" onclick="themeChange(this)"
-                        ><i class="fa-solid fa-gears"></i><a>Auto</a></span
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <span class="dropdown-item"
-                  ><i class="fa-solid fa-dollar-sign"></i
-                  ><a id="dropdownCurrency">Egyenleg: </a></span
-                >
-              </li>
-            </ul>
+                </li>
+                <li>
+                  <span class="dropdown-item" onclick="themeChange(this)"
+                    ><i class="fa-solid fa-gears"></i><a>Auto</a></span
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span class="dropdown-item"
+              ><i class="fa-solid fa-dollar-sign"></i
+              ><a id="dropdownCurrency" onclick="location.href = '/currencyUpload'"></a></span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+        
+    <div class="appcont">
+      <div class="app">
+          <h1 id="result" ></h1>
+          <img class="marker" src="/img/marker.png" />  <span id="result" ></span>
+          <img style="margin-top:5px" class="wheel" src="/img/whel.png" />
+          <button class="opn openPopup">Pörgetés</button>
+      </div>
+      <section>
+
+        <div class="popup-outer none">
+          <div class="popup-box">
+            <i class="fa-solid fa-xmark close"></i>
+            <img class="cursortrack" src="/img/roulette/roulette-betting-table.png" alt="">
+            <input type="number">
+            <button class="button">Pörgetés</button>
           </div>
         </div>
-        <div class="appcont">
-            <div class="app">
-                <h1 id="result" ></h1>
-                <img class="marker" src="marker.png" />  <span id="result" ></span>
-                <img style="margin-top:5px" class="wheel" src="whel.png" />
-                <button class="button">Pörgetés</button>
-              </div>
-            </div>
-        </div>
-
+        
+      </section>
+    </div>
+    
+  </div>
 </body>
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"
   ></script>
+  <script
+    src="https://kit.fontawesome.com/f359bbbf40.js"
+    crossorigin="anonymous"
+></script>
 <script>
     (function() {
-      const wheel = document.querySelector('.wheel');
-      const startButton = document.querySelector('.button');
+
+    const section = document.querySelector("section")
+    let isMouseOver = false
+
+    document.querySelector(".popup-box").addEventListener(
+      "mouseleave",
+      () => {
+        isMouseOver = false
+      },
+      false
+    )
+
+    var dict = {};
+    document.querySelector('.cursortrack').addEventListener("click", event => {
+      console.log(event.clientX)
+      /*if (event.clientY > 200 && event.clientY < 286)
+      {
+        if (event.clientX > 382 && event.clientX < 445)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 446 && event.clientX < 507)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 508 && event.clientX < 570)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 570 && event.clientX < 633)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 633 && event.clientX < 697)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 697 && event.clientX < 759)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 759 && event.clientX < 822)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 822 && event.clientX < 885)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 885 && event.clientX < 949)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 949 && event.clientX < 1011)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1011 && event.clientX < 1074)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1074 && event.clientX < 1137)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1137 && event.clientX < 1202)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+      }
+      else if (event.clientY > 287 && event.clientY < 372)
+      {
+        if (event.clientX > 382 && event.clientX < 445)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 446 && event.clientX < 507)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 508 && event.clientX < 570)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 570 && event.clientX < 633)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 633 && event.clientX < 697)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 697 && event.clientX < 759)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 759 && event.clientX < 822)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 822 && event.clientX < 885)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 885 && event.clientX < 949)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 949 && event.clientX < 1011)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1011 && event.clientX < 1074)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1074 && event.clientX < 1137)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1137 && event.clientX < 1202)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+      }
+      else if (event.clientY > 373 && event.clientY < 455)
+      {
+        if (event.clientX > 382 && event.clientX < 445)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 446 && event.clientX < 507)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 508 && event.clientX < 570)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 570 && event.clientX < 633)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 633 && event.clientX < 697)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 697 && event.clientX < 759)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 759 && event.clientX < 822)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 822 && event.clientX < 885)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 885 && event.clientX < 949)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 949 && event.clientX < 1011)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1011 && event.clientX < 1074)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1074 && event.clientX < 1137)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1137 && event.clientX < 1202)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+      }
+      else if (event.clientY > 456 && event.clientY < 532)
+      {
+        if (event.clientX > 382 && event.clientX < 634)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 634 && event.clientX < 885)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 885 && event.clientX < 1139)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+      }
+      else if (event.clientY > 533 && event.clientY < 600)
+      {
+        if (event.clientX > 382 && event.clientX < 508)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 508 && event.clientX < 634)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 634 && event.clientX < 759)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 759 && event.clientX < 886)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 885 && event.clientX < 1009)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+        if (event.clientX > 1009 && event.clientX < 1139)
+        {
+          dict["1 RED"] = document.querySelector('input').innerHTML
+        }
+      }
+      
+      */
+    })
+
+    document.querySelector(".popup-box").addEventListener(
+      "mouseover",
+      () => {
+        isMouseOver = true
+      },
+      false
+    )
+
+    document.querySelector(".openPopup").addEventListener("click", () => {
+      section.classList.add("show")
+    })
+
+    document.querySelector(".close").addEventListener("click", () => {
+      section.classList.remove("show")
+    })
+
+    document.querySelector('.popup-outer').addEventListener("click", del)
+
+    function del() {
+      if (!isMouseOver) section.classList.remove("show")
+    }
+
+      if (
+      sessionStorage.getItem("username") != "" &&
+      sessionStorage.getItem("username") != null
+    ) {
+      document.querySelector(
+        ".accountdetail"
+      ).children[1].children[0].innerHTML = sessionStorage.getItem("username")
+      document.querySelector(
+        ".accountdetail"
+      ).children[1].children[1].innerHTML =
+        "@" + sessionStorage.getItem("emailadress").split("@")[0]
+    } else {
+      location.href = "/"
+    }
+    
+    var currency = document.querySelector(".currency")
+    var bet = document.querySelector(".bet")
+    const doors = document.querySelectorAll(".door")
+    document.querySelector("#dropdownCurrency").innerHTML =  sessionStorage.getItem("currency")
+
+      const wheel = document.querySelector('.wheel')
+      const startButton = document.querySelector('.button')
       const back= document.querySelector('.back')
-      let deg = 0;
+      let deg = 0
     
-    
+      
       startButton.addEventListener('click', () => {
+
+      })
+
+      function start(){
         
-        startButton.style.pointerEvents = 'none';
+        startButton.style.pointerEvents = 'none'
         
-        deg = Math.floor(5000 + Math.random() * 5000);
-        wheel.style.transition = 'all 10s ease ';
-        back.style.transition = 'all 14s ease-out';
+        deg = Math.floor(5000 + Math.random() * 5000)
+        wheel.style.transition = 'all 10s ease'
         
       
-        wheel.style.transform = `rotate(${deg}deg)`;
+        wheel.style.transform = `rotate(${deg}deg)`
       
-        wheel.classList.add('blur');
-        back.classList.add('rainbow');
-      });
+        wheel.classList.add('blur')
+      }
+
       wheel.addEventListener('transitionend', () => {
        
-        wheel.classList.remove('blur');
-        back.classList.remove('rainbow');
+        wheel.classList.remove('blur')
         
-        startButton.style.pointerEvents = 'auto';
-        wheel.style.transition = 'none';
-        const actualDeg = deg % 360;
-        wheel.style.transform = `rotate(${actualDeg}deg)`;
+        startButton.style.pointerEvents = 'auto'
+        wheel.style.transition = 'none'
+        const actualDeg = deg % 360
+        wheel.style.transform = `rotate(${actualDeg}deg)`
         
         
-        var element = document.getElementById("result");
-       
+        var element = document.getElementById("result")
+        var result = ""
         
         
         if (actualDeg>=0 && actualDeg<10 ){
-          document.getElementById("result").textContent="26 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="26 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=10 && actualDeg<20 ){
-          document.getElementById("result").textContent="3 RED";
-          element.classList.remove("green");
-           element.classList.remove("black");
-          element.classList.add("red");
+          result="3 RED"
+          element.classList.remove("green")
+           element.classList.remove("black")
+          element.classList.add("red")
         }
         if (actualDeg>=20 && actualDeg<30 ){
-          document.getElementById("result").textContent="35 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="35 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=30 && actualDeg<39 ){
-          document.getElementById("result").textContent="12 RED";
-          element.classList.remove("green");
-           element.classList.remove("black");
-          element.classList.add("red");
+          result="12 RED"
+          element.classList.remove("green")
+           element.classList.remove("black")
+          element.classList.add("red")
         }
         if (actualDeg>=39 && actualDeg<49 ){
-          document.getElementById("result").textContent="28 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="28 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=49 && actualDeg<59 ){
-          document.getElementById("result").textContent="7 RED";
-          element.classList.remove("green");
-           element.classList.remove("black");
-          element.classList.add("red");
+          result="7 RED"
+          element.classList.remove("green")
+           element.classList.remove("black")
+          element.classList.add("red")
         }
         if (actualDeg>=59 && actualDeg<69 ){
-          document.getElementById("result").textContent="29 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="29 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=69 && actualDeg<78 ){
-          document.getElementById("result").textContent="18 RED";
-          element.classList.remove("green");
-           element.classList.remove("black");
-          element.classList.add("red");
+          result="18 RED"
+          element.classList.remove("green")
+           element.classList.remove("black")
+          element.classList.add("red")
         }
         if (actualDeg>=78 && actualDeg<88 ){
-          document.getElementById("result").textContent="22 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="22 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=88 && actualDeg<98 ){
-          document.getElementById("result").textContent="9 RED";
-          element.classList.remove("green");
-           element.classList.remove("black");
-          element.classList.add("red");
+          result="9 RED"
+          element.classList.remove("green")
+           element.classList.remove("black")
+          element.classList.add("red")
         }
         if (actualDeg>=98 && actualDeg<107 ){
-          document.getElementById("result").textContent="31 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="31 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=107 && actualDeg<117 ){
-              document.getElementById("result").textContent="14 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="14 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=117 && actualDeg<127 ){
-          document.getElementById("result").textContent="20 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="20 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=127 && actualDeg<137 ){
-              document.getElementById("result").textContent="1 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="1 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=137 && actualDeg<146 ){
-          document.getElementById("result").textContent="33 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="33 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=146 && actualDeg<156 ){
-              document.getElementById("result").textContent="16 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="16 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=156 && actualDeg<166 ){
-          document.getElementById("result").textContent="24 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="24 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=166 && actualDeg<176 ){
-              document.getElementById("result").textContent="5 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="5 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=176 && actualDeg<185 ){
-          document.getElementById("result").textContent="10 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="10 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=185 && actualDeg<195 ){
-              document.getElementById("result").textContent="23 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="23 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=195 && actualDeg<205 ){
-          document.getElementById("result").textContent="8 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="8 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=205 && actualDeg<215 ){
-              document.getElementById("result").textContent="30 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="30 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=215 && actualDeg<224 ){
-          document.getElementById("result").textContent="11 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="11 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=224 && actualDeg<234 ){
-              document.getElementById("result").textContent="36 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="36 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=234 && actualDeg<244 ){
-          document.getElementById("result").textContent="13 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="13 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=244 && actualDeg<253 ){
-              document.getElementById("result").textContent="21 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="27 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=253 && actualDeg<263 ){
-          document.getElementById("result").textContent="6 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="6 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=263 && actualDeg<273 ){
-              document.getElementById("result").textContent="34 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="34 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=273 && actualDeg<283 ){
-          document.getElementById("result").textContent="17 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="17 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=283 && actualDeg<292 ){
-              document.getElementById("result").textContent="25 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="25 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=292 && actualDeg<302 ){
-          document.getElementById("result").textContent="2 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="2 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=302 && actualDeg<312 ){
-              document.getElementById("result").textContent="21 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="21 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=312 && actualDeg<322 ){
-          document.getElementById("result").textContent="4 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="4 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
         }
         if (actualDeg>=322 && actualDeg<331 ){
-              document.getElementById("result").textContent="19 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="19 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=331 && actualDeg<341 ){
-          document.getElementById("result").textContent="15 BLACK";
-          element.classList.remove("green");
-           element.classList.remove("red");
-          element.classList.add("black");
+          result="15 BLACK"
+          element.classList.remove("green")
+           element.classList.remove("red")
+          element.classList.add("black")
          }
         if (actualDeg>=341 && actualDeg<350 ){
-              document.getElementById("result").textContent="32 RED";
-              element.classList.remove("green");
-               element.classList.remove("black");
-              element.classList.add("red");
+              result="32 RED"
+              element.classList.remove("green")
+               element.classList.remove("black")
+              element.classList.add("red")
         }
         if (actualDeg>=350 && actualDeg<360 ){
-          document.getElementById("result").textContent="0 GREEN";
-          element.classList.remove("black");
-          element.classList.remove("red");
-          element.classList.add("green");
+          result="0 GREEN"
+          element.classList.remove("black")
+          element.classList.remove("red")
+          element.classList.add("green")
         }
     
       
-        console.log(actualDeg);
+        console.log(actualDeg)
       }
-      );
+      )
     })();
     </script>
 </html>

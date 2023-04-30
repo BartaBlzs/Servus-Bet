@@ -177,7 +177,7 @@
           <p>A rulett egy főleg kaszinókban és játéktermekben elterjedt szerencsejáték. Neve a francia roulette, azaz kis kerék kifejezésből ered. Története egészen az ókorig vezethető vissza, de pontos eredetére több elmélet is létezik, azonban ezek egyike sem bizonyított. A játék lényege, hogy a játékvezető (krupié) által, a tárcsa forgási irányával ellentétesen elgurított golyónak a megérkezési pozíciójára lehet fogadni. Minden boxhoz szám és szín tartozik, ezek különböző kombinációjára lehet tétet helyezni. A tétek az eséllyel közel arányos nyereményekkel kecsegtetik a játékosokat.</p>
         </div>
     
-        <button class="btn btn-secondary playbtn" onclick="game('slot')">Játék!</button>
+        <button class="btn btn-secondary playbtn" onclick="game('roulette')">Játék!</button>
       </div>
 
       <div class="dice-page">
@@ -208,7 +208,7 @@
   </div>
 </div>
 
-<div class="center" hidden>
+<div class="center">
   <div class="under18">
     <span>18 év alatt az oldal használata tilos</span>
     <p>(5b) a 16. § szerinti nem folyamatosan szervezett sorsolásos játék kivételével - 18 éven aluli személyek nem vehetnek részt. A szerencsejáték-szervezőnek a játékosok részére a szerencsejátékban való részvétel biztosítása során az e törvényben és külön jogszabályban meghatározottak szerint figyelemfelkeltő módon tájékoztatást kell nyújtania a 18 éven aluli személyek játéktilalmáról, és a felelős játékszervezés elvének megfelelően el kell végeznie az e törvényben és külön jogszabályban előírt vagy az önkéntesen vállalt, a 18 éven aluli személyek játéktilalmának biztosítását szolgáló intézkedéseket. <br>(11) A játékkaszinót 18 éven aluliak nem látogathatják. <br>(4) Játékosként kizárólag természetes személy vehető nyilvántartásba. Ha a játékos életkora nem állapítható meg, vagy a 18. életév betöltése egyébként kétséges, a szervező a játékos nyilvántartásba vételét megtagadja.</p>
@@ -320,6 +320,10 @@ function game(gameName)
   if (gameName == 'slot')
   {
     location.href = '/games/slotmachine'
+  }
+  else if (gameName == 'roulette')
+  {
+    location.href = '/games/roulette'
   }
 }
 </script>

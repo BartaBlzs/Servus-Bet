@@ -56,6 +56,10 @@ app.get("/games/slotmachine", (req, res) => {
   res.render("games/slotmachine")
 })
 
+app.get("/games/roulette", (req, res) => {
+  res.render("games/roulette")
+})
+
 app.post("/sendmail", bodyParser.text({type: '*/*'}), (req, res) => {
   var mailOptions = {
     from: 'team.servusbet@outlook.com',
