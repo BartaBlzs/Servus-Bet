@@ -1,0 +1,46 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgb(211, 211, 211);
+  font-family: "Asap", sans-serif;
+  overflow: hidden;
+}
+
+h1
+{
+    text-align: center;
+}
+
+.flex
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.flex > div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: whitesmoke;
+    border: 3px solid whitesmoke;
+    gap: 5px;
+    border-radius: 7px;
+    width: 180px;
+    height: 70px;
+}
+
+.flex > div > span
+{
+    font-size: large;
+}

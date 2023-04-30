@@ -37,7 +37,7 @@ app.set("view engine", "ejs");
 // Get and Post requests
 
 app.get("", (req, res) => {
-  res.render("index", { "text" : "this is ejs" });
+  res.render("index");
 })
 
 app.get("/servusbet", (req, res) => {
@@ -47,6 +47,11 @@ app.get("/servusbet", (req, res) => {
 app.get("/setpass", (req, res) => {
   res.render("setpass")
 })
+
+app.get("/currencyUpload", (req, res) => {
+  res.render("currencyUpload");
+})
+
 app.get("/games/slotmachine", (req, res) => {
   res.render("games/slotmachine")
 })
