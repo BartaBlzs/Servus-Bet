@@ -53,18 +53,18 @@
               </button>
               <ul class="dropdown-menu dropdown-menu-dark">
                 <li>
-                  <span class="dropdown-item" onclick="themeChange(this)"
+                  <span class="dropdown-item s1"
                     ><i class="fa-solid fa-cloud-moon"></i><a>Sötét</a
                     ><i class="fa-solid fa-check"></i
                   ></span>
                 </li>
                 <li>
-                  <span class="dropdown-item" onclick="themeChange(this)"
+                  <span class="dropdown-item s1"
                     ><i class="fa-solid fa-sun"></i><a>Világos</a></span
                   >
                 </li>
                 <li>
-                  <span class="dropdown-item" onclick="themeChange(this)"
+                  <span class="dropdown-item s1"
                     ><i class="fa-solid fa-gears"></i><a>Auto</a></span
                   >
                 </li>
@@ -84,8 +84,8 @@
     <div class="appcont">
       <div class="app">
           <h1 id="result" ></h1>
-          <img class="marker" src="/img/marker.png" />  <span id="result" ></span>
-          <img style="margin-top:5px" class="wheel" src="/img/whel.png" />
+          <img class="marker" src="/img/roulette/marker.png" />  <span id="result" ></span>
+          <img style="margin-top:5px" class="wheel" src="/img/roulette/whel.png" />
           <button class="opn openPopup">Pörgetés</button>
       </div>
       <section>
@@ -106,10 +106,7 @@
         
       </section>
 
-      <!--<div class="chip">
-        <img src="/img/roulette/casinochip.png" alt="">
-        <span></span>
-      </div>-->
+      
     </div>
     
   </div>
@@ -147,241 +144,242 @@
       else if (e.key == "Backspace") document.querySelector('.popup-box').querySelector('div').children[1].innerHTML = document.querySelector('input').value.substring(0, document.querySelector('input').value.length-1)
       
     })
-    
+
+    window.onresize = () => 
+    {
+      document.querySelectorAll('.chip').forEach(e => e.remove())
+    }
+
     var dict = {};
     document.querySelector('.cursortrack').addEventListener("click", event => {
-      
-      /*var div = document.createElement('div')
+      var absX = event.clientX
+      var absY = event.clientY
+
+      var div = document.createElement('div')
       div.classList.add('chip')
       var img = document.createElement('img')
       img.src = "/img/roulette/casinochip.png"
       div.appendChild(img)
-      var span = createElement('span')
-      div.appendChild(span)
+      div.addEventListener('click', () => div.remove())
+     
+      document.querySelector('body').appendChild(div)
+      var cursorX = absX-(window.innerWidth-document.querySelector('.popup-box > img').clientWidth)/2+258
+      var cursorY = absY-(window.innerHeight-document.querySelector('.popup-box > img').clientHeight)/2
 
-      if (event.clientY > 200 && event.clientY < 286)
-      {
-        if (cursorX > 382 && cursorX < 445)
-        {
-          dict["1 RED"] = document.querySelector('input').innerHTML
-        }
-        
-        /*<div class="chip">
-        <img src="/img/roulette/casinochip.png" alt="">
-        <span></span>
-      </div>
-      }*/
-      var cursorX = event.clientX-(window.innerWidth-document.querySelector('.popup-box > img').clientWidth)/2+258
-      var cursorY = event.clientY-(window.innerHeight-document.querySelector('.popup-box > img').clientHeight)/2
-      
+      console.log(absX)
+
+      div.style.left = absX*1 - 35  + 'px'
+      div.style.top =  absY*1 - 35 + 'px'
+
       if (cursorY > -60 && cursorY < 26)
       {
         if (cursorX > 382 && cursorX < 445)
         {
-          dict["3 RED"] = document.querySelector('input').innerHTML
+          dict["3 RED"] = document.querySelector('input').value
         }
         if (cursorX > 446 && cursorX < 507)
         {
-          dict["6 BLACK"] = document.querySelector('input').innerHTML
+          dict["6 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 508 && cursorX < 570)
         {
-          dict["9 RED"] = document.querySelector('input').innerHTML
+          dict["9 RED"] = document.querySelector('input').value
         }
         if (cursorX > 570 && cursorX < 633)
         {
-          dict["12 RED"] = document.querySelector('input').innerHTML
+          dict["12 RED"] = document.querySelector('input').value
         }
         if (cursorX > 633 && cursorX < 697)
         {
-          dict["15 BLACK"] = document.querySelector('input').innerHTML
+          dict["15 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 697 && cursorX < 759)
         {
-          dict["18 RED"] = document.querySelector('input').innerHTML
+          dict["18 RED"] = document.querySelector('input').value
         }
         if (cursorX > 759 && cursorX < 822)
         {
-          dict["21 RED"] = document.querySelector('input').innerHTML
+          dict["21 RED"] = document.querySelector('input').value
         }
         if (cursorX > 822 && cursorX < 885)
         {
-          dict["24 BLACK"] = document.querySelector('input').innerHTML
+          dict["24 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 885 && cursorX < 949)
         {
-          dict["27 RED"] = document.querySelector('input').innerHTML
+          dict["27 RED"] = document.querySelector('input').value
         }
         if (cursorX > 949 && cursorX < 1011)
         {
-          dict["30 RED"] = document.querySelector('input').innerHTML
+          dict["30 RED"] = document.querySelector('input').value
         }
         if (cursorX > 1011 && cursorX < 1074)
         {
-          dict["33 BLACK"] = document.querySelector('input').innerHTML
+          dict["33 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 1074 && cursorX < 1137)
         {
-          dict["36 RED"] = document.querySelector('input').innerHTML
+          dict["36 RED"] = document.querySelector('input').value
         }
         if (cursorX > 1137 && cursorX < 1202)
         {
-          dict["2 to 1"] = document.querySelector('input').innerHTML
+          dict["mod 0"] = document.querySelector('input').value
         }
       }
       else if (cursorY > 26 && cursorY < 110)
       {
         if (cursorX > 382 && cursorX < 445)
         {
-          dict["2 BLACK"] = document.querySelector('input').innerHTML
+          dict["2 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 446 && cursorX < 507)
         {
-          dict["5 RED"] = document.querySelector('input').innerHTML
+          dict["5 RED"] = document.querySelector('input').value
         }
         if (cursorX > 508 && cursorX < 570)
         {
-          dict["8 BLACK"] = document.querySelector('input').innerHTML
+          dict["8 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 570 && cursorX < 633)
         {
-          dict["11 BLACK"] = document.querySelector('input').innerHTML
+          dict["11 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 633 && cursorX < 697)
         {
-          dict["14 RED"] = document.querySelector('input').innerHTML
+          dict["14 RED"] = document.querySelector('input').value
         }
         if (cursorX > 697 && cursorX < 759)
         {
-          dict["17 BLACK"] = document.querySelector('input').innerHTML
+          dict["17 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 759 && cursorX < 822)
         {
-          dict["20 BLACK"] = document.querySelector('input').innerHTML
+          dict["20 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 822 && cursorX < 885)
         {
-          dict["23 RED"] = document.querySelector('input').innerHTML
+          dict["23 RED"] = document.querySelector('input').value
         }
         if (cursorX > 885 && cursorX < 949)
         {
-          dict["26 BLACK"] = document.querySelector('input').innerHTML
+          dict["26 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 949 && cursorX < 1011)
         {
-          dict["29 BLACK"] = document.querySelector('input').innerHTML
+          dict["29 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 1011 && cursorX < 1074)
         {
-          dict["32 RED"] = document.querySelector('input').innerHTML
+          dict["32 RED"] = document.querySelector('input').value
         }
         if (cursorX > 1074 && cursorX < 1137)
         {
-          dict["35 BLACK"] = document.querySelector('input').innerHTML
+          dict["35 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 1137 && cursorX < 1202)
         {
-          dict["2 to 1"] = document.querySelector('input').innerHTML
+          dict["mod 1"] = document.querySelector('input').value
         }
       }
       else if (cursorY > 110 && cursorY < 195)
       {
         if (cursorX > 382 && cursorX < 445)
         {
-          dict["1 RED"] = document.querySelector('input').innerHTML
+          dict["1 RED"] = document.querySelector('input').value
         }
         if (cursorX > 446 && cursorX < 507)
         {
-          dict["4 BLACK"] = document.querySelector('input').innerHTML
+          dict["4 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 508 && cursorX < 570)
         {
-          dict["7 RED"] = document.querySelector('input').innerHTML
+          dict["7 RED"] = document.querySelector('input').value
         }
         if (cursorX > 570 && cursorX < 633)
         {
-          dict["10 BLACK"] = document.querySelector('input').innerHTML
+          dict["10 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 633 && cursorX < 697)
         {
-          dict["13 BLACK"] = document.querySelector('input').innerHTML
+          dict["13 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 697 && cursorX < 759)
         {
-          dict["16 RED"] = document.querySelector('input').innerHTML
+          dict["16 RED"] = document.querySelector('input').value
         }
         if (cursorX > 759 && cursorX < 822)
         {
-          dict["19 RED"] = document.querySelector('input').innerHTML
+          dict["19 RED"] = document.querySelector('input').value
         }
         if (cursorX > 822 && cursorX < 885)
         {
-          dict["22 BLACK"] = document.querySelector('input').innerHTML
+          dict["22 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 885 && cursorX < 949)
         {
-          dict["25 RED"] = document.querySelector('input').innerHTML
+          dict["25 RED"] = document.querySelector('input').value
         }
         if (cursorX > 949 && cursorX < 1011)
         {
-          dict["28 BLACK"] = document.querySelector('input').innerHTML
+          dict["28 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 1011 && cursorX < 1074)
         {
-          dict["31 BLACK"] = document.querySelector('input').innerHTML
+          dict["31 BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 1074 && cursorX < 1137)
         {
-          dict["34 RED"] = document.querySelector('input').innerHTML
+          dict["34 RED"] = document.querySelector('input').value
         }
         if (cursorX > 1137 && cursorX < 1202)
         {
-          dict["2 to 1"] = document.querySelector('input').innerHTML
+          dict["mod 2"] = document.querySelector('input').value
         }
       }
       else if (cursorY > 195 && cursorY < 271)
       {
         if (cursorX > 382 && cursorX < 634)
         {
-          dict["1st 12"] = document.querySelector('input').innerHTML
+          dict["1st 12"] = document.querySelector('input').value
         }
         if (cursorX > 634 && cursorX < 885)
         {
-          dict["2nd 12"] = document.querySelector('input').innerHTML
+          dict["2nd 12"] = document.querySelector('input').value
         }
         if (cursorX > 885 && cursorX < 1139)
         {
-          dict["3rd 12"] = document.querySelector('input').innerHTML
+          dict["3rd 12"] = document.querySelector('input').value
         }
       }
       else if (cursorY > 271 && cursorY < 335)
       {
         if (cursorX > 382 && cursorX < 508)
         {
-          dict["1 to 18"] = document.querySelector('input').innerHTML
+          dict["1 half"] = document.querySelector('input').value
         }
         if (cursorX > 508 && cursorX < 634)
         {
-          dict["EVEN"] = document.querySelector('input').innerHTML
+          dict["EVEN"] = document.querySelector('input').value
         }
         if (cursorX > 634 && cursorX < 759)
         {
-          dict["RED"] = document.querySelector('input').innerHTML
+          dict["RED"] = document.querySelector('input').value
         }
         if (cursorX > 759 && cursorX < 886)
         {
-          dict["BLACK"] = document.querySelector('input').innerHTML
+          dict["BLACK"] = document.querySelector('input').value
         }
         if (cursorX > 885 && cursorX < 1009)
         {
-          dict["ODD"] = document.querySelector('input').innerHTML
+          dict["ODD"] = document.querySelector('input').value
         }
         if (cursorX > 1009 && cursorX < 1139)
         {
-          dict["19 to 36"] = document.querySelector('input').innerHTML
+          dict["2 half"] = document.querySelector('input').value
         }
       }
-      console.log(Object.keys(dict).pop())
+      
+      
     })
 
     document.querySelector(".popup-box").addEventListener(
@@ -398,12 +396,18 @@
 
     document.querySelector(".close").addEventListener("click", () => {
       section.classList.remove("show")
+      document.querySelectorAll('.chip').forEach(e => e.remove())
+
     })
 
     document.querySelector('.popup-outer').addEventListener("click", del)
 
     function del() {
-      if (!isMouseOver) section.classList.remove("show")
+      if (!isMouseOver)
+      {
+        section.classList.remove("show")
+        document.querySelectorAll('.chip').forEach(e => e.remove())
+      }
     }
 
       if (
@@ -433,7 +437,9 @@
     
       
       startButton.addEventListener('click', () => {
-
+        section.classList.remove("show")
+        document.querySelectorAll('.chip').forEach(e => e.remove())
+        start()
       })
 
       function start(){
@@ -459,237 +465,259 @@
         wheel.style.transform = `rotate(${actualDeg}deg)`
         
         
-        var element = document.getElementById("result")
         var result = ""
         
         
         if (actualDeg>=0 && actualDeg<10 ){
           result="26 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=10 && actualDeg<20 ){
           result="3 RED"
-          element.classList.remove("green")
-           element.classList.remove("black")
-          element.classList.add("red")
         }
         if (actualDeg>=20 && actualDeg<30 ){
           result="35 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=30 && actualDeg<39 ){
           result="12 RED"
-          element.classList.remove("green")
-           element.classList.remove("black")
-          element.classList.add("red")
         }
         if (actualDeg>=39 && actualDeg<49 ){
           result="28 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=49 && actualDeg<59 ){
           result="7 RED"
-          element.classList.remove("green")
-           element.classList.remove("black")
-          element.classList.add("red")
         }
         if (actualDeg>=59 && actualDeg<69 ){
           result="29 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=69 && actualDeg<78 ){
           result="18 RED"
-          element.classList.remove("green")
-           element.classList.remove("black")
-          element.classList.add("red")
         }
         if (actualDeg>=78 && actualDeg<88 ){
           result="22 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=88 && actualDeg<98 ){
           result="9 RED"
-          element.classList.remove("green")
-           element.classList.remove("black")
-          element.classList.add("red")
         }
         if (actualDeg>=98 && actualDeg<107 ){
           result="31 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=107 && actualDeg<117 ){
               result="14 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=117 && actualDeg<127 ){
           result="20 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=127 && actualDeg<137 ){
               result="1 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=137 && actualDeg<146 ){
           result="33 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=146 && actualDeg<156 ){
-              result="16 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
+          result="16 RED"
         }
         if (actualDeg>=156 && actualDeg<166 ){
           result="24 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=166 && actualDeg<176 ){
-              result="5 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
+          result="5 RED"
         }
         if (actualDeg>=176 && actualDeg<185 ){
           result="10 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=185 && actualDeg<195 ){
-              result="23 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
+          result="23 RED"
         }
         if (actualDeg>=195 && actualDeg<205 ){
           result="8 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=205 && actualDeg<215 ){
-              result="30 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
+          result="30 RED"
         }
         if (actualDeg>=215 && actualDeg<224 ){
           result="11 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=224 && actualDeg<234 ){
               result="36 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=234 && actualDeg<244 ){
           result="13 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=244 && actualDeg<253 ){
               result="27 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=253 && actualDeg<263 ){
           result="6 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=263 && actualDeg<273 ){
               result="34 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=273 && actualDeg<283 ){
           result="17 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=283 && actualDeg<292 ){
               result="25 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=292 && actualDeg<302 ){
           result="2 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=302 && actualDeg<312 ){
               result="21 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=312 && actualDeg<322 ){
           result="4 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
         }
         if (actualDeg>=322 && actualDeg<331 ){
               result="19 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=331 && actualDeg<341 ){
           result="15 BLACK"
-          element.classList.remove("green")
-           element.classList.remove("red")
-          element.classList.add("black")
          }
         if (actualDeg>=341 && actualDeg<350 ){
               result="32 RED"
-              element.classList.remove("green")
-               element.classList.remove("black")
-              element.classList.add("red")
         }
         if (actualDeg>=350 && actualDeg<360 ){
           result="0 GREEN"
-          element.classList.remove("black")
-          element.classList.remove("red")
-          element.classList.add("green")
         }
     
+        var reward = 0
+        
+        for (const [key, value] of Object.entries(dict)) {
+          if (result == key)
+          {
+            reward += value*36
+          }
+          else if (key.split(' ')[1] == "12")
+          {
+            if (key[0] == "1")
+            {
+              for (let i = 1; i <= 12; i++) {
+                if (result.split(' ')[0] == i)
+                {
+                  reward += value*3
+                }
+              }
+            }
+            if (key[0] == "2")
+            {
+              for (let i = 13; i <= 24; i++) {
+                if (result.split(' ')[0] == i)
+                {
+                  reward += value*3
+                }
+              }
+            }
+            if (key[0] == "3")
+            {
+              for (let i = 24; i <= 36; i++) {
+                if (result.split(' ')[0] == i)
+                {
+                  reward += value*3
+                }
+              }
+            }
+          }
+          else if (key.split(' ')[0] == "mod")
+          {
+            if (key.split(' ')[1] == "0")
+            {
+              if (parseInt(result.split(' ')[0]) % 3 == 0)
+              {
+                reward += value*3
+              }
+            }
+            if (key.split(' ')[1] == "1")
+            {
+              if (parseInt(result.split(' ')[0]) % 3 == 1)
+              {
+                reward += value*3
+              }
+            }
+            if (key.split(' ')[1] == "2")
+            {
+              if (parseInt(result.split(' ')[0]) % 3 == 2)
+              {
+                reward += value*3
+              }
+            }
+          }
+          else if (key == "RED")
+          {
+            if (result.split(' ')[1] == key) reward += value*2
+          }
+          else if (key == "BLACK")
+          {
+            if (result.split(' ')[1] == key) reward += value*2
+          }
+          else if (key == "EVEN")
+          {
+            if (result.split(' ')[0] % 2 == 0) reward += value*2
+          }
+          else if (key == "ODD")
+          {
+            if (result.split(' ')[0] % 2 == 1) reward += value*2
+          }
+          else if (key.split(' ')[1] == "half")
+          {
+            if (key.split(' ')[0] == "1")
+            {
+              if (parseInt(result.split(' ')[0]) <= 18) reward += value*2
+            }
+            if (key.split(' ')[0] == "2")
+            {
+              if (parseInt(result.split(' ')[0]) > 18) reward += value*2
+            }
+          }
+        }
+        console.log(reward)
+        dict = {}
+      })
       
-        console.log(actualDeg)
-      }
-      )
+      document.querySelectorAll('.s1').forEach((e)=>e.addEventListener('click', ()=>
+      {
+        var r = document.querySelector(":root")
+        // change where the check icon is
+        document.querySelector(".fa-check").remove()
+        var i = document.createElement("i")
+        i.classList.add("fa-solid")
+        i.classList.add("fa-check")
+        e.appendChild(i)
+
+        if (e.children[1].innerHTML == "Világos") {
+          light()
+        } else if (e.children[1].innerHTML == "Sötét") {
+          dark()
+        } else {
+          if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          ) {
+            dark()
+          } else if (window.matchMedia) {
+            light()
+          }
+        }
+
+        function dark() {
+          r.style.setProperty("--bgcolor", "rgba(25, 31, 35, 1)")
+          r.style.setProperty("--fontcolor", "white")
+          r.style.setProperty("--dropdown-iconcolor", "#9d9d9d")
+          r.style.setProperty("--hovercolor", "rgb(34, 41, 46)")
+          document
+            .querySelectorAll(".dropdown-menu")
+            .forEach(e => e.classList.add("dropdown-menu-dark"))
+        }
+
+        function light() {
+          r.style.setProperty("--bgcolor", "rgb(211, 211, 211)")
+          r.style.setProperty("--fontcolor", "black")
+          r.style.setProperty("--dropdown-iconcolor", "#5f5f5f")
+          r.style.setProperty("--hovercolor", "rgb(192, 192, 192)")
+          document
+            .querySelectorAll(".dropdown-menu")
+            .forEach(e => e.classList.remove("dropdown-menu-dark"))
+        }
+      }))
     })();
     </script>
 </html>
