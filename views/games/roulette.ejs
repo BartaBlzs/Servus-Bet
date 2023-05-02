@@ -100,7 +100,7 @@
               <span></span>
             </div>
             
-            <button class="button">Pörgetés</button>
+            <button class="button" disabled>Pörgetés</button>
           </div>
         </div>
         
@@ -378,8 +378,10 @@
           dict["2 half"] = document.querySelector('input').value
         }
       }
-      
-      
+      if (cursorY > -60 && cursorY < 190)
+      {
+        if (cursorX > 312 && cursorX < 380) dict["0 GREEN"] = document.querySelector('input').value
+      }
     })
 
     document.querySelector(".popup-box").addEventListener(
@@ -392,11 +394,13 @@
 
     document.querySelector(".openPopup").addEventListener("click", () => {
       section.classList.add("show")
+      startButton.disabled = false
     })
 
     document.querySelector(".close").addEventListener("click", () => {
       section.classList.remove("show")
       document.querySelectorAll('.chip').forEach(e => e.remove())
+startButton.disabled = true
 
     })
 
@@ -407,6 +411,7 @@
       {
         section.classList.remove("show")
         document.querySelectorAll('.chip').forEach(e => e.remove())
+        startButton.disabled = true
       }
     }
 
@@ -439,6 +444,8 @@
       startButton.addEventListener('click', () => {
         section.classList.remove("show")
         document.querySelectorAll('.chip').forEach(e => e.remove())
+        startButton.disabled = true
+        
         start()
       })
 
@@ -667,6 +674,10 @@
             {
               if (parseInt(result.split(' ')[0]) > 18) reward += value*2
             }
+          }
+          else if (key.split(' ')[1] == "GREEN")
+          {
+            if (result.split(' ')[0] == "0") reward += value*35
           }
         }
         console.log(reward)

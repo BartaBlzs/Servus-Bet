@@ -82,6 +82,10 @@ body {
   color: whitesmoke;
 }
 
+.opn {
+  margin-top: 30px;
+}
+
 .blur {
   animation: blur 10s;
 }
