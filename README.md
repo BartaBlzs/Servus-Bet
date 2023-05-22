@@ -1,0 +1,1 @@
+TO START APPLICATION: npm start
